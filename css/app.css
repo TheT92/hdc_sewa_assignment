@@ -1,3 +1,32 @@
 body {
     min-width: 320px;
 }
+
+.text-color-primary {
+    color: #019630 !important;
+}
+.btn-plain-primary {
+    color: #019630 !important;
+    border-color: #019630 !important;
+    &:hover {
+        color: white !important;
+        background-color: #019630 !important;
+    }
+}
+.bg-color-primary {
+    background-color: #019630 !important;
+    /* background-color: #017a28 !important; */
+}
+
+nav {
+    min-width: 320px;
+}
+
+.navbar {
+    height: 4rem;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
