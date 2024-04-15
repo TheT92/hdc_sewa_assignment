@@ -47,7 +47,7 @@
                 header("Location: " . "index.php");
                 exit();
             } else {
-                if($result == 0) {
+                if($rowCount == 0) {
                     $loginErr = "email/password incorrect.";
                 } else {
                     $loginErr = "Login failed, please try again later.";
