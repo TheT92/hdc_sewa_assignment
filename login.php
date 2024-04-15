@@ -67,7 +67,7 @@
             <section class="mb-2">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp">
-                <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
+                <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span><br/>
                 <span class="error text-danger"><?php echo $emailErr; ?></span>
             </section>
             <section class="mb-2">

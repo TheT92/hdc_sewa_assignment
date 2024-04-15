@@ -54,6 +54,13 @@
         <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
         <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
         <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
+        <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
+        <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
+        <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
+        <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
+        <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
+        <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
+        <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
     </section>
     <section class="pc-bg bg-color-primary w-100 justify-content-end">
         <div class="carousel slide carousel-fade swiper" data-bs-ride="carousel">
@@ -77,7 +84,7 @@
         </div>
     </section>
     <section class="wrapper w-100">
-        <ul class="title p-4 mb-2 d-inline-flex flex-column justify-content-between">
+        <ul class="title p-4 mb-0 d-inline-flex flex-column justify-content-between">
             <li class="mb-2">
                 <h3>&mdash; Biking</h3>
             </li>
@@ -98,10 +105,10 @@
             </li>
         </ul>
         <section class="new-classes p-4 pb-2">
-            <h3 class="d-flex justify-content-between mb-3 fw-bold">
+            <h3 class="new-clas-title d-flex justify-content-between mb-3 fw-bold">
                 NEW CLASSES
                 <span
-                    class="badge rounded-pill text-bg-info d-flex justify-content-center text-bg-light text-color-primary">
+                    class="badge rounded-pill text-bg-info d-flex justify-content-center text-bg-light text-color-primary fw-medium">
                     VIEW ALL
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -110,45 +117,48 @@
                     </svg>
                 </span>
             </h3>
-            <section class="row gx-3 gy-3">
-                <section class="class-item text-color-primary d-flex mb-3 col-12 col-sm-3">
-                    <span class="d-inline img" style="background-image: url('./images/img2.jpg');"></span>
+            <section class="class-list">
+                <section class="class-item overflow-hidden mb-3">
+                    <img class="img" src="./images/img10.jpg" />
                     <section class="class-info p-2">
-                        <h3>Horse Riding</h3>
-                        <span class="class-desc overflow-hidden">Under the guidance of professional and experienced
-                            coaches,
-                            3 times a
-                            week</span>
+                        <h5 class="mb-1 text-color-primary fw-bold">Golf</h5>
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                            coaches, 3 times a week</span>
                     </section>
                 </section>
-                <section class="class-item text-color-primary d-flex col-12 col-sm-3">
-                    <span class="d-inline img" style="background-image: url('./images/img4.jpg');"></span>
+                <section class="class-item overflow-hidden mb-3">
+                    <img class="img" src="./images/img3.jpg" />
                     <section class="class-info p-2">
-                        <h3>Hiking</h3>
-                        <span class="class-desc overflow-hidden">Led by professional coaches, we practice once a
-                            week
-                            indoors and once outdoors</span>
+                        <h5 class="mb-1 text-color-primary fw-bold">Climbing</h5>
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                            coaches, 3 times a week</span>
+                    </section>
+                </section>
+                <section class="class-item overflow-hidden mb-3">
+                    <img class="img" src="./images/img8.jpg" />
+                    <section class="class-info p-2">
+                        <h5 class="mb-1 text-color-primary fw-bold">Biking</h5>
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                            coaches, 3 times a week</span>
+                    </section>
+                </section>
+                <section class="class-item overflow-hidden mb-3">
+                    <img class="img" src="./images/img4.jpg" />
+                    <section class="class-info p-2">
+                        <h5 class="mb-1 text-color-primary fw-bold">Camping</h5>
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                            coaches, 3 times a week</span>
                     </section>
                 </section>
             </section>
         </section>
-        <section class="special-offers bg-color-primary m-4 p-3">
-            <h3 class="d-flex justify-content-between mb-3 fw-bold">
+        <section class="special-offers p-4">
+            <h3 class="special-offers-title d-flex justify-content-between mb-3 fw-bold">
                 SPECIAL OFFERS
             </h3>
             <section class="row gx-3 gy-3">
-                <section class="col-6 col-sm-3">
-                    <section class="special-item">
-                        <span class="d-block img" style="background-image: url('./images/img7.jpg');"></span>
-                        <section class="p-2">
-                            <h5>Camping</h5>
-                            <span class="desc overflow-hidden">2 days and 1 night of wild camping, we provide tents and
-                                other basic equipments.</span>
-                        </section>
-                    </section>
-                </section>
-                <section class="col-6 col-sm-3">
-                    <section class="special-item">
+                <section class="col-12 col-sm-4 col-md-3">
+                    <section class="special-item bg-color-primary">
                         <span class="d-block img" style="background-image: url('./images/img1.jpg');"></span>
                         <section class="p-2">
                             <h5>Camping</h5>
@@ -161,8 +171,8 @@
                 <!-- Force next columns to break to new line -->
                 <!-- <section class="w-100"></section> -->
 
-                <section class="col-6 col-sm-3">
-                    <section class="special-item">
+                <section class="col-12 col-sm-4 col-md-3">
+                    <section class="special-item bg-color-primary">
                         <span class="d-block img" style="background-image: url('./images/img9.jpg');"></span>
                         <section class="p-2">
                             <h5>Camping</h5>
@@ -171,8 +181,8 @@
                         </section>
                     </section>
                 </section>
-                <section class="col-6 col-sm-3">
-                    <section class="special-item">
+                <section class="col-12 col-sm-4 col-md-3">
+                    <section class="special-item bg-color-primary">
                         <span class="d-block img" style="background-image: url('./images/img8.jpg');"></span>
                         <section class="p-2">
                             <h5>Camping</h5>

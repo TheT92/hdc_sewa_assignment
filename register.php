@@ -97,7 +97,7 @@
             <section class="mb-2">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp">
-                <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
+                <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span><br/>
                 <span class="error text-danger"><?php echo $emailErr; ?></span>
             </section>
             <section class="mb-2">
@@ -126,9 +126,8 @@
                 while ($row = $memberLevelList->fetch(PDO::FETCH_ASSOC)) {
                     echo '<section class="d-flex mb-4"><input value="' . $row["id"] . '" class="form-check-input" type="radio" name="memberLevel" id="' . $row["name"] . '" checked>';
                     echo '<label class="form-check-label level-item p-3 ms-3" for="' . $row["name"] . '">';
-                    echo '<h4 class="text-color-primary"><b>' . $row["name"] . '</b></h4>';
+                    echo '<p class="text-color-primary d-flex justify-content-between"><b class="fs-5">' . $row["name"] . '</b><span class="text-end"><b class="fs-1">€' . number_format($row["fee"], 2) . '</b><br/>Per Month</span></p>';
                     echo '<span>' . $row["desc"] . '</span><br/>';
-                    echo '<span>' . $row["fee"] . '/ Per Month</span><br/>';
                     echo '</label></section>';
                 }
                 ?>
