@@ -11,7 +11,8 @@
     <title>Home</title>
 </head>
 
-<body id="index">
+<body id="index" class="page-container">
+    <?php include './api/initdata.php' ?>
     <nav class="navbar fixed-top bg-body-tertiary ps-4 pe-2">
         <p class="fs-4 mb-0 lh-1 fw-bold fst-italic logo"><span class="text-color-primary">O</span>utdoor </br> Club</p>
         <span>
@@ -22,19 +23,25 @@
                         d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5zm-2 0h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2m6.979 3.856a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.895-.133L4.232 10H3.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .416-.223l1.41-2.115 1.195 3.982a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h1.5a.5.5 0 0 0 0-1h-1.128z" />
                 </svg>
             </a>
-            <a href="login.php" class="p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-person"
+            <a href="login.php" class="p-2 ms-3">
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                  </svg>';
+                } else {
+                    echo '<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-person"
                     viewBox="0 0 16 16">
                     <path
                         d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-                </svg>
+                    </svg>';
+                }
+                ?>
+
             </a>
         </span>
     </nav>
-    <!-- <?php
-    echo "Hello World!";
-    ?> -->
-    <!-- <?php include 'initdata.php' ?> -->
     <section class="flow-container">
         <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
         <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
@@ -48,8 +55,29 @@
         <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
         <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
     </section>
+    <section class="pc-bg bg-color-primary w-100 justify-content-end">
+        <div class="carousel slide carousel-fade swiper" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item w-100 h-100 active">
+                    <span class="d-block w-100 h-100 img" style="background-image: url('./images/img10.jpg');"></span>
+                </div>
+                <div class="carousel-item w-100 h-100">
+                    <span class="d-block w-100 h-100 img" style="background-image: url('./images/img3.jpg');"></span>
+                </div>
+                <div class="carousel-item w-100 h-100">
+                    <span class="d-block w-100 h-100 img" style="background-image: url('./images/img6.jpg');"></span>
+                </div>
+                <div class="carousel-item w-100 h-100">
+                    <span class="d-block w-100 h-100 img" style="background-image: url('./images/img5.jpg');"></span>
+                </div>
+                <div class="carousel-item w-100 h-100">
+                    <span class="d-block w-100 h-100 img" style="background-image: url('./images/img8.jpg');"></span>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="wrapper w-100">
-        <ul class="title p-4 mb-2">
+        <ul class="title p-4 mb-2 d-inline-flex flex-column justify-content-between">
             <li class="mb-2">
                 <h3>&mdash; Biking</h3>
             </li>
@@ -72,7 +100,8 @@
         <section class="new-classes p-4 pb-2">
             <h3 class="d-flex justify-content-between mb-3 fw-bold">
                 NEW CLASSES
-                <span class="badge rounded-pill text-bg-info d-flex justify-content-center text-bg-light text-color-primary">
+                <span
+                    class="badge rounded-pill text-bg-info d-flex justify-content-center text-bg-light text-color-primary">
                     VIEW ALL
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -81,21 +110,25 @@
                     </svg>
                 </span>
             </h3>
-            <section class="class-item text-color-primary d-flex mb-3">
-                <span class="d-inline img" style="background-image: url('./images/img2.jpg');"></span>
-                <section class="class-info p-2">
-                    <h3>Horse Riding</h3>
-                    <span class="class-desc overflow-hidden">Under the guidance of professional and experienced coaches,
-                        3 times a
-                        week</span>
+            <section class="row gx-3 gy-3">
+                <section class="class-item text-color-primary d-flex mb-3 col-12 col-sm-3">
+                    <span class="d-inline img" style="background-image: url('./images/img2.jpg');"></span>
+                    <section class="class-info p-2">
+                        <h3>Horse Riding</h3>
+                        <span class="class-desc overflow-hidden">Under the guidance of professional and experienced
+                            coaches,
+                            3 times a
+                            week</span>
+                    </section>
                 </section>
-            </section>
-            <section class="class-item text-color-primary d-flex">
-                <span class="d-inline img" style="background-image: url('./images/img4.jpg');"></span>
-                <section class="class-info p-2">
-                    <h3>Hiking</h3>
-                    <span class="class-desc overflow-hidden">Led by professional coaches, we practice once a week
-                        indoors and once outdoors</span>
+                <section class="class-item text-color-primary d-flex col-12 col-sm-3">
+                    <span class="d-inline img" style="background-image: url('./images/img4.jpg');"></span>
+                    <section class="class-info p-2">
+                        <h3>Hiking</h3>
+                        <span class="class-desc overflow-hidden">Led by professional coaches, we practice once a
+                            week
+                            indoors and once outdoors</span>
+                    </section>
                 </section>
             </section>
         </section>

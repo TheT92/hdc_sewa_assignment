@@ -1,20 +1,26 @@
-#login {
+#register {
     min-height: 100vh;
     padding-bottom: 10vh !important;
-    #loginBox {
+
+    #registerBox {
         margin: 4rem auto 0;
         max-width: 520px !important;
         border-radius: 8px;
         box-shadow: 0 0px 3px 0px #bbb;
-    }    
+        .level-item {
+            border-radius: 8px;
+            box-shadow: 0 0px 0px 1px #019630;
+        }
+    }
 }
 
 @media screen and (max-width: 750px) {
-    #login {
+    #register {
         padding-bottom: 0 !important;
     }
-    #loginBox {
-        margin-top: 0 !important;
+
+    #registerBox {
+        margin-top: 2rem !important;
         box-shadow: none !important;
     }
 }

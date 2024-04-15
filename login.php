@@ -7,29 +7,81 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/login.css" />
     <title>Login</title>
 </head>
 
-<body>
-    <section id="login" class="p-4">
-        <h2 class="fw-bold text-center lh-1 fst-italic mb-5 mt-5 logo"><span class="text-color-primary">O</span>utdoor </br> Club</h2>
-        <h4 class="text-center ">MEMBER LOGIN</h4>
-        <form>
-            <section class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <section id="emailHelp" class="form-text">We'll never share your email with anyone else.</section>
+<body id="login" class="page-container d-flex flex-column justify-content-center">
+    <?php 
+        session_start();
+        if (isset($_SESSION["email"])) {
+            header("Location: index.php");
+            exit();
+        }
+    ?>
+    <?php
+    include ("./api/login.php");
+    ?>
+    <?php
+    $loginErr = "";
+    $emailErr = "";
+    $passwordErr = "";
+    $isValid = true;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        if (empty(($email))) {
+            $isValid = false;
+            $emailErr = 'Email address required.';
+        }
+        if (empty($password)) {
+            $isValid = false;
+            $passwordErr = 'Password required.';
+        }
+        if ($isValid) {
+            $result = login($email, $password);
+            $rowCount = $result->rowCount();
+            if ($rowCount > 0) {
+                $_SESSION['email'] = $email;
+                $email = $password = "";
+                header("Location: " . "index.php");
+                exit();
+            } else {
+                if($result == 0) {
+                    $loginErr = "email/password incorrect.";
+                } else {
+                    $loginErr = "Login failed, please try again later.";
+                }
+            }
+        }
+    }
+    ?>
+    <nav class="navbar fixed-top bg-body-tertiary ps-4 pe-2">
+        <a href="index.php"><p class="fs-4 mb-0 lh-1 fw-bold fst-italic logo"><span class="text-color-primary">O</span>utdoor </br> Club</p></a>
+    </nav>
+    <section id="loginBox" class="p-4 w-100">
+        <h2 class="fw-bold text-center lh-1 fst-italic mb-5 logo"><span class="text-color-primary">O</span>utdoor
+            </br> Club</h2>
+        <h4 class="text-center">MEMBER LOGIN</h4>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <section class="mb-2">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp">
+                <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
+                <span class="error text-danger"><?php echo $emailErr; ?></span>
             </section>
-            <section class="mb-4">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+            <section class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control">
+                <span class="error text-danger"><?php echo $passwordErr; ?></span>
             </section>
+            <p class="error text-danger text-center"><?php echo $loginErr; ?></p>
             <button type="submit" class="btn btn-primary w-100 mb-2 bg-color-primary">SUBMIT</button>
         </form>
         <p><a href="#" class="link-primary text-color-primary">Forgot your password?</a></p>
         <p class="text-center mt-4 mb-1">NOT A MEMBER?</p>
         <a href="register.php"><button type="button"
-                class="btn btn-outline-primary btn-plain-primary w-100">REGISTER</button></a>
+                class="btn btn-outline-primary btn-plain-primary w-100 mb-3">REGISTER</button></a>
     </section>
 
 </body>
