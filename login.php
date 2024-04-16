@@ -60,7 +60,7 @@
         <a href="index.php"><p class="fs-4 mb-0 lh-1 fw-bold fst-italic logo"><span class="text-color-primary">O</span>utdoor </br> Club</p></a>
     </nav>
     <section id="loginBox" class="p-4 w-100">
-        <h2 class="fw-bold text-center lh-1 fst-italic mb-5 logo"><span class="text-color-primary">O</span>utdoor
+        <h2 class="fw-bold text-center lh-1 fst-italic mb-4 logo"><span class="text-color-primary">O</span>utdoor
             </br> Club</h2>
         <h4 class="text-center">MEMBER LOGIN</h4>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

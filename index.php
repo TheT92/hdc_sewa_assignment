@@ -12,6 +12,7 @@
 </head>
 
 <body id="index" class="page-container">
+    <?php session_start(); ?>
     <?php include './api/initdata.php' ?>
     <nav class="navbar fixed-top bg-body-tertiary ps-4 pe-2">
         <p class="fs-4 mb-0 lh-1 fw-bold fst-italic logo"><span class="text-color-primary">O</span>utdoor </br> Club</p>
@@ -104,7 +105,7 @@
             </li>
         </ul>
         <section class="new-classes p-4 pb-2">
-            <h3 class="new-clas-title d-flex justify-content-between mb-3 fw-bold">
+            <h3 class="new-clas-title d-flex align-items-center justify-content-between mb-3 fw-bold">
                 NEW CLASSES
                 <span
                     class="badge rounded-pill text-bg-info d-flex justify-content-center text-bg-light text-color-primary fw-medium">
@@ -121,7 +122,8 @@
                     <img class="img" src="./images/img10.jpg" />
                     <section class="class-info p-2">
                         <h5 class="mb-1 text-color-primary fw-bold">Golf</h5>
-                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and
+                            experienced
                             coaches, 3 times a week</span>
                     </section>
                 </section>
@@ -129,7 +131,8 @@
                     <img class="img" src="./images/img3.jpg" />
                     <section class="class-info p-2">
                         <h5 class="mb-1 text-color-primary fw-bold">Climbing</h5>
-                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and
+                            experienced
                             coaches, 3 times a week</span>
                     </section>
                 </section>
@@ -137,7 +140,8 @@
                     <img class="img" src="./images/img8.jpg" />
                     <section class="class-info p-2">
                         <h5 class="mb-1 text-color-primary fw-bold">Biking</h5>
-                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and
+                            experienced
                             coaches, 3 times a week</span>
                     </section>
                 </section>
@@ -145,7 +149,8 @@
                     <img class="img" src="./images/img4.jpg" />
                     <section class="class-info p-2">
                         <h5 class="mb-1 text-color-primary fw-bold">Camping</h5>
-                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and experienced
+                        <span class="class-desc overflow-hidden lh-sm">Under the guidance of professional and
+                            experienced
                             coaches, 3 times a week</span>
                     </section>
                 </section>
@@ -161,7 +166,8 @@
                         <span class="d-block img" style="background-image: url('./images/img1.jpg');"></span>
                         <section class="p-2">
                             <h5 class="mb-1 fw-bold">Camping</h5>
-                            <span class="desc lh-sm overflow-hidden">2 days and 1 night of wild camping, we provide tents and
+                            <span class="desc lh-sm overflow-hidden">2 days and 1 night of wild camping, we provide
+                                tents and
                                 other basic equipments.</span>
                         </section>
                     </section>
@@ -175,7 +181,8 @@
                         <span class="d-block img" style="background-image: url('./images/img9.jpg');"></span>
                         <section class="p-2">
                             <h5 class="mb-1 fw-bold">Boating</h5>
-                            <span class="desc lh-sm overflow-hidden">2 days and 1 night of wild camping, we provide tents and
+                            <span class="desc lh-sm overflow-hidden">2 days and 1 night of wild camping, we provide
+                                tents and
                                 other basic equipments.</span>
                         </section>
                     </section>
@@ -185,7 +192,8 @@
                         <span class="d-block img" style="background-image: url('./images/img8.jpg');"></span>
                         <section class="p-2">
                             <h5 class="mb-1 fw-bold">Camping</h5>
-                            <span class="desc lh-sm overflow-hidden">2 days and 1 night of wild camping, we provide tents and
+                            <span class="desc lh-sm overflow-hidden">2 days and 1 night of wild camping, we provide
+                                tents and
                                 other basic equipments.</span>
                         </section>
                     </section>
