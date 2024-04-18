@@ -1,4 +1,5 @@
 #index {
+    min-height: 100vh;
     .flow-container {
         position: absolute;
         column-count: 2;
@@ -23,6 +24,7 @@
     .wrapper {
         position: relative;
         color: white;
+        flex: 1;
         overflow: hidden;
         .title {
             padding-bottom: 0 !important;

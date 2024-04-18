@@ -11,7 +11,7 @@
     <title>Home</title>
 </head>
 
-<body id="index" class="page-container">
+<body id="index" class="page-container d-flex flex-column">
     <?php include './api/initdata.php' ?>
     <?php include './app/views/header.php' ?>
     <section class="pc-bg bg-color-primary w-100 justify-content-end position-absolute">
