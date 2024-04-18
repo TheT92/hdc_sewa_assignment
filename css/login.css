@@ -1,8 +1,9 @@
 #login {
     min-height: 100vh;
-    padding-bottom: 10vh !important;
+    .login-wrapper {
+        flex: 1;
+    }
     #loginBox {
-        margin: 4rem auto 0;
         max-width: 520px !important;
         border-radius: 8px;
         box-shadow: 0 0px 3px 0px #bbb;

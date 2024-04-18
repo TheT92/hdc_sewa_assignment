@@ -1,9 +1,10 @@
 #index {
     .flow-container {
-        position: relative;
+        position: absolute;
         column-count: 2;
         column-gap: 2px;
-
+        z-index: -1;
+        min-width: 320px;
         .flow-img {
             margin-bottom: 2px;
         }
@@ -20,11 +21,9 @@
     }
 
     .wrapper {
-        position: absolute;
-        top: 4rem;
-        left: 0;
+        position: relative;
         color: white;
-
+        overflow: hidden;
         .title {
             padding-bottom: 0 !important;
             list-style: none;

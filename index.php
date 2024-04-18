@@ -12,57 +12,9 @@
 </head>
 
 <body id="index" class="page-container">
-    <?php session_start(); ?>
     <?php include './api/initdata.php' ?>
-    <nav class="navbar fixed-top bg-body-tertiary ps-4 pe-2">
-        <p class="fs-4 mb-0 lh-1 fw-bold fst-italic logo"><span class="text-color-primary">O</span>utdoor </br> Club</p>
-        <span>
-            <a class="p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                    class="bi bi-clipboard-pulse" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5zm-2 0h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2m6.979 3.856a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.895-.133L4.232 10H3.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .416-.223l1.41-2.115 1.195 3.982a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h1.5a.5.5 0 0 0 0-1h-1.128z" />
-                </svg>
-            </a>
-            <a href="login.php" class="p-2 ms-3 me-2">
-                <?php
-                if (isset($_SESSION["email"])) {
-                    echo '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                  </svg>';
-                } else {
-                    echo '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
-                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-                  </svg>';
-                }
-                ?>
-
-            </a>
-        </span>
-    </nav>
-    <section class="flow-container">
-        <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
-        <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
-    </section>
-    <section class="pc-bg bg-color-primary w-100 justify-content-end">
+    <?php include './app/views/header.php' ?>
+    <section class="pc-bg bg-color-primary w-100 justify-content-end position-absolute">
         <div class="carousel slide carousel-fade swiper" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item w-100 h-100 active" data-bs-interval="8000">
@@ -84,6 +36,26 @@
         </div>
     </section>
     <section class="wrapper w-100">
+        <section class="flow-container">
+            <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
+        </section>
         <ul class="title p-4 mb-0 d-inline-flex flex-column justify-content-between">
             <li class="mb-2">
                 <h3>&mdash; Biking</h3>
@@ -172,10 +144,6 @@
                         </section>
                     </section>
                 </section>
-
-                <!-- Force next columns to break to new line -->
-                <!-- <section class="w-100"></section> -->
-
                 <section class="col-12 col-sm-12 col-md-3">
                     <section class="special-item bg-color-primary">
                         <span class="d-block img" style="background-image: url('./images/img9.jpg');"></span>
@@ -201,6 +169,7 @@
             </section>
         </section>
     </section>
+    <?php include './app/views/footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
