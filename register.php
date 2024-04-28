@@ -74,6 +74,7 @@
                     class="text-color-primary">O</span>utdoor
                 </br> Club</h2>
             <h4 class="text-center">REGISTER</h4>
+            <p class="text-end mt-3">Already rigistered? <a href="login.php" class="text-color-primary">Login</a></p>
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <section class="mb-2">
                     <label for="email" class="form-label">Email address</label>
