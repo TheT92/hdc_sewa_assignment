@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/icon.jpg" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css" />
@@ -91,7 +92,7 @@
             <section class="flex-1">
                 <p class="fs-1 mb-3 text-color-primary"><b>Welcome to the Outdoor Club!</b></p>
                 <p>We are a club focusing on outdoor sports/adventures. Our story started in April 2024. Tian Chen, Xin
-                    Xie, and YiXin Luo are our three founders, they brought this wonderful idea and established this
+                    Xie, and Yixin Luo are our three founders, they brought this wonderful idea and established this
                     club. Our activities including but are not limited to: mountaineering, camping, equestrian, golf,
                     skiing, outdoor adventure, diving, etc. All outdoor activities you have thought of and unexpected
                     can be found here.</p>
@@ -105,20 +106,20 @@
         <section class="new-classes p-4">
             <p class="new-class-title fs-1 d-flex align-items-center justify-content-between mb-3">
                 NEW CLASSES
-                <span
-                    class="badge border-color-primary rounded-pill p-2 ps-3 pe-3 fs-6 text-bg-info d-flex align-items-center justify-content-center text-bg-light text-color-primary fw-medium">
+                <a href="class.php"
+                    class="badge text-decoration-none border-color-primary rounded-pill p-2 ps-3 pe-3 fs-6 text-bg-info d-flex align-items-center justify-content-center text-bg-light text-color-primary fw-medium">
                     VIEW ALL
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-arrow-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
                             d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                     </svg>
-                </span>
+                </a>
             </p>
-            <section class="class-card-list">
+            <section class="class-list">
                 <section class="class-item align-items-center d-flex w-100 overflow-hidden mb-4">
                     <span class="d-block img" style="background-image: url('./images/img10.jpg');"></span>
-                    <section class="flex-1 ps-4 pe-4">
+                    <section class="flex-1 ms-4 me-4 p-0">
                         <p class="class-name mb-1 fs-2 text-color-primary">Golf</p>
                         <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
                             experienced
@@ -129,7 +130,7 @@
                 </section>
                 <section class="class-item align-items-center reverse d-flex w-100 overflow-hidden mb-4">
                     <span class="d-block img" style="background-image: url('./images/img3.jpg');"></span>
-                    <section class="flex-1 ps-4 pe-4">
+                    <section class="flex-1 ms-4 me-4 p-0">
                         <p class="class-name mb-1 fs-2 text-color-primary">Climbing</p>
                         <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
                             experienced
@@ -140,7 +141,7 @@
                 </section>
                 <section class="class-item align-items-center d-flex w-100 overflow-hidden mb-4">
                     <span class="d-block img" style="background-image: url('./images/img8.jpg');"></span>
-                    <section class="flex-1 ps-4 pe-4">
+                    <section class="flex-1 ms-4 me-4 p-0">
                         <p class="class-name mb-1 fs-2 text-color-primary">Biking</p>
                         <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
                             experienced
@@ -151,7 +152,7 @@
                 </section>
                 <section class="class-item align-items-center reverse d-flex w-100 overflow-hidden mb-4">
                     <span class="d-block img" style="background-image: url('./images/img4.jpg');"></span>
-                    <section class="flex-1 ps-4 pe-4">
+                    <section class="flex-1 ms-4 me-4 p-0">
                         <p class="class-name mb-1 fs-2 text-color-primary">Camping</p>
                         <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
                             experienced
@@ -224,61 +225,65 @@
             </section>
 
         </section>
-        <section class="membership p-4 bg-color-primary">
-            <h3 class="text-center mb-4">MEMBERSHIP</h3>
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-4 mb-4">
-                    <section class="member-item text-center overflow-hidden">
+        <section class="membership p-4">
+            <p class="text-center mb-4 fs-1 text-color-primary">MEMBERSHIP</p>
+            <div class="d-flex member-list">
+                <section class="d-flex flex-1 flex-column me-4 mb-4 p-0 member-item text-center overflow-hidden">
+                    <section class="flex-1 info-wrap">
                         <section class="member-detail bg-color-primary p-4">
-                            <h3 class="mb-5 pb-3 member-name text-white">Public</h3>
+                            <h4 class="mb-5 pb-3 member-name text-white">Public</h4>
                             <h1 class="mb-0 text-white">€ 0.00</h1>
-                            <h5 class="mb-4 text-white">Per Month</h5>
+                            <h5 class="mb-0 text-white">Per Month</h5>
                         </section>
-                        <section class="p-4">
-                            <p class="member-desc mb-4 overflow-hidden">No membership fee member, all classes need be
-                                purchased at the original
-                                price.
-                            </p>
-                            <a href="#"
-                                class="join-now badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
-                                NOW</a>
-                        </section>
+                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">No membership fee member, all classes need
+                            be
+                            purchased at the original
+                            price.
+                        </p>
                     </section>
-                </div>
-                <div class="col-12 col-sm-12 col-md-4 mb-4">
-                    <section class="member-item text-center overflow-hidden">
+                    <section class="p-3">
+                        <a href="register.php"
+                            class="join-now text-decoration-none badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
+                            NOW</a>
+                    </section>
+                </section>
+                <section class="d-flex flex-1 flex-column me-4 mb-4 p-0 member-item text-center overflow-hidden">
+                    <section class="flex-1 info-wrap">
                         <section class="member-detail bg-color-primary p-4">
-                            <h3 class="mb-5 pb-3 member-name text-white">Middle</h3>
+                            <h4 class="mb-5 pb-3 member-name text-white">Middle</h4>
                             <h1 class="mb-0 text-white">€ 299.99</h1>
-                            <h5 class="mb-4 text-white">Per Month</h5>
+                            <h5 class="mb-0 text-white">Per Month</h5>
                         </section>
-                        <section class="p-4">
-                            <p class="member-desc mb-4 overflow-hidden">Middle level member, you can participate in some
-                                courses for free, and pay a 30% discount on other courses.
-                            </p>
-                            <a href="#"
-                                class="join-now badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
-                                NOW</a>
-                        </section>
+                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Middle level member, you can participate in
+                            some
+                            courses for free, and pay a 30% discount on other courses.
+                        </p>
                     </section>
-                </div>
-                <div class="col-12 col-sm-12 col-md-4 mb-4">
-                    <section class="member-item text-center overflow-hidden">
+                    <section class="p-3">
+                        <a href="register.php"
+                            class="join-now text-decoration-none badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
+                            NOW</a>
+                    </section>
+                </section>
+
+                <section class="d-flex flex-1 flex-column mb-4 p-0 member-item text-center overflow-hidden">
+                    <section class="flex-1 info-wrap">
                         <section class="member-detail bg-color-primary p-4">
-                            <h3 class="mb-5 pb-3 member-name text-white">Prime</h3>
+                            <h4 class="mb-5 pb-3 member-name text-white">Prime</h4>
                             <h1 class="mb-0 text-white">€ 999.99</h1>
-                            <h5 class="mb-4 text-white">Per Month</h5>
+                            <h5 class="mb-0 text-white">Per Month</h5>
                         </section>
-                        <section class="p-4">
-                            <p class="member-desc mb-4 overflow-hidden">Prime level member, You can participate in all
-                                courses without paying additional course fees (excluding self-paid equipment, etc.).
-                            </p>
-                            <a href="#"
-                                class="join-now badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
-                                NOW</a>
-                        </section>
+                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Prime level member, You can participate in
+                            all
+                            courses without paying additional course fees (excluding self-paid equipment, etc.).
+                        </p>
                     </section>
-                </div>
+                    <section class="p-3">
+                        <a href="register.php"
+                            class="join-now text-decoration-none badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
+                            NOW</a>
+                    </section>
+                </section>
             </div>
         </section>
     </section>
