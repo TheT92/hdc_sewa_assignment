@@ -17,7 +17,7 @@
     <span>
         <?php
         if (str_ends_with($current_path, '/') || str_ends_with($current_path, 'index.php')) {
-            echo '<a class="p-2">
+            echo '<a href="class.php" class="p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                     class="bi bi-clipboard-pulse" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
