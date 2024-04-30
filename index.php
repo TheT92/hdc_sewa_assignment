@@ -12,7 +12,7 @@
 </head>
 
 <body id="index" class="page-container d-flex flex-column">
-    <?php include './api/initdata.php' ?>
+    <?php require './api/initdata.php' ?>
     <?php include './app/views/header.php' ?>
     <section class="banner w-100">
         <div id="swiper" class="carousel slide carousel-fade swiper w-100 h-100" data-bs-ride="carousel">

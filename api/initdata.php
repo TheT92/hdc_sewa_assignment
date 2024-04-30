@@ -10,5 +10,5 @@ try {
     $conn->exec($sqlScript);
 } catch (Exception $e) {
     error_log($e->getMessage());
-    // echo "". $e->getMessage() ."";
+    echo "". $e->getMessage() ."";
 }
