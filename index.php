@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./images/icon.jpg" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/index.css" />
     <title>Home</title>
@@ -72,18 +71,11 @@
             <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
             <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
             <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
             <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
             <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
             <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
             <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
+            <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
         </section>
         <section class="introduction slide-up d-flex align-items-center justify-content-center p-4">
             <p class="fs-1 mb-0 lh-1 fw-bold fst-italic me-5 text-center"><span
@@ -104,7 +96,7 @@
             </section>
         </section>
         <section class="new-classes p-4">
-            <p class="new-class-title fs-1 d-flex align-items-center justify-content-between mb-3">
+            <p class="new-class-title text-color-primary fs-1 d-flex align-items-center justify-content-between mb-3">
                 NEW CLASSES
                 <a href="class.php"
                     class="badge text-decoration-none border-color-primary rounded-pill p-2 ps-3 pe-3 fs-6 text-bg-info d-flex align-items-center justify-content-center text-bg-light text-color-primary fw-medium">
@@ -116,59 +108,83 @@
                     </svg>
                 </a>
             </p>
-            <section class="class-list">
-                <section class="class-item align-items-center d-flex w-100 overflow-hidden mb-4">
-                    <span class="d-block img" style="background-image: url('./images/img10.jpg');"></span>
-                    <section class="flex-1 ms-4 me-4 p-0">
-                        <p class="class-name mb-1 fs-2 text-color-primary">Golf</p>
-                        <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
-                            experienced
-                            coaches, 3 times a week.</span>
-                        <a href="register.php"><button type="button"
-                                class="btn btn-sm btn-primary mb-2 bg-color-primary">VIEW CLASS</button></a>
+            <section class="row class-list">
+                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
+                    <section class="class-item">
+                        <section class="img overflow-hidden">
+                            <span class="img-inner" style="background-image: url('./images/img10.jpg');"></span>
+                        </section>
+                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
+                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
+                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
+                                professional and
+                                experienced
+                                coaches, 3 times a week.</span>
+                        </section>
                     </section>
+                    <a href="register.php"
+                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
+                        CLASS</a>
                 </section>
-                <section class="class-item align-items-center reverse d-flex w-100 overflow-hidden mb-4">
-                    <span class="d-block img" style="background-image: url('./images/img3.jpg');"></span>
-                    <section class="flex-1 ms-4 me-4 p-0">
-                        <p class="class-name mb-1 fs-2 text-color-primary">Climbing</p>
-                        <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
-                            experienced
-                            coaches, 3 times a week.</span>
-                        <a href="register.php"><button type="button"
-                                class="btn btn-sm btn-primary mb-2 bg-color-primary">VIEW CLASS</button></a>
+                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
+                    <section class="class-item">
+                        <section class="img overflow-hidden">
+                            <span class="img-inner" style="background-image: url('./images/img3.jpg');"></span>
+                        </section>
+                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
+                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
+                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
+                                professional and
+                                experienced
+                                coaches, 3 times a week.</span>
+                        </section>
                     </section>
+                    <a href="register.php"
+                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
+                        CLASS</a>
                 </section>
-                <section class="class-item align-items-center d-flex w-100 overflow-hidden mb-4">
-                    <span class="d-block img" style="background-image: url('./images/img8.jpg');"></span>
-                    <section class="flex-1 ms-4 me-4 p-0">
-                        <p class="class-name mb-1 fs-2 text-color-primary">Biking</p>
-                        <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
-                            experienced
-                            coaches, 3 times a week.</span>
-                        <a href="register.php"><button type="button"
-                                class="btn btn-sm btn-primary mb-2 bg-color-primary">VIEW CLASS</button></a>
+                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
+                    <section class="class-item">
+                        <section class="img overflow-hidden">
+                            <span class="img-inner" style="background-image: url('./images/img8.jpg');"></span>
+                        </section>
+                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
+                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
+                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
+                                professional and
+                                experienced
+                                coaches, 3 times a week.</span>
+                        </section>
                     </section>
+                    <a href="register.php"
+                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
+                        CLASS</a>
                 </section>
-                <section class="class-item align-items-center reverse d-flex w-100 overflow-hidden mb-4">
-                    <span class="d-block img" style="background-image: url('./images/img4.jpg');"></span>
-                    <section class="flex-1 ms-4 me-4 p-0">
-                        <p class="class-name mb-1 fs-2 text-color-primary">Camping</p>
-                        <span class="class-desc fs-5 overflow-hidden">Under the guidance of professional and
-                            experienced
-                            coaches, 3 times a week.</span>
-                        <a href="register.php"><button type="button"
-                                class="btn btn-sm btn-primary mb-2 bg-color-primary">VIEW CLASS</button></a>
+                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
+                    <section class="class-item">
+                        <section class="img overflow-hidden">
+                            <span class="img-inner" style="background-image: url('./images/img4.jpg');"></span>
+                        </section>
+                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
+                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
+                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
+                                professional and
+                                experienced
+                                coaches, 3 times a week.</span>
+                        </section>
                     </section>
+                    <a href="register.php"
+                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
+                        CLASS</a>
                 </section>
             </section>
         </section>
         <section class="special-offers p-4">
-            <p class="special-offers-title fs-1 d-flex justify-content-between mb-3">
+            <p class="special-offers-title text-color-primary fs-1 d-flex justify-content-between mb-3">
                 SPECIAL OFFERS
             </p>
             <section class="special-list d-flex">
-                <section class="special-item v-item d-flex flex-column overflow-hidden me-2">
+                <section class="special-item v-item d-flex flex-column overflow-hidden me-4">
                     <section class="d-block img" style="background-image: url('./images/img1.jpg');">
                         <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
                             <p class="fs-4 mb-2">Camping</p>
@@ -185,7 +201,7 @@
                     </a>
                 </section>
                 <section class="flex-1 d-flex flex-column">
-                    <section class="flex-1 special-item d-flex overflow-hidden mb-2">
+                    <section class="flex-1 special-item d-flex overflow-hidden mb-4">
                         <section class="d-block img" style="background-image: url('./images/img9.jpg');">
                             <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
                                 <p class="fs-4 mb-1">Boating</p>
@@ -226,8 +242,8 @@
 
         </section>
         <section class="membership p-4">
-            <p class="text-center mb-4 fs-1 text-color-primary">MEMBERSHIP</p>
-            <div class="d-flex member-list">
+            <p class="text-center mb-4 fs-1 text-white">MEMBERSHIP</p>
+            <div class="d-flex member-list justify-content-center">
                 <section class="d-flex flex-1 flex-column me-4 mb-4 p-0 member-item text-center overflow-hidden">
                     <section class="flex-1 info-wrap">
                         <section class="member-detail bg-color-primary p-4">
@@ -235,7 +251,8 @@
                             <h1 class="mb-0 text-white">€ 0.00</h1>
                             <h5 class="mb-0 text-white">Per Month</h5>
                         </section>
-                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">No membership fee member, all classes need
+                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">No membership fee member, all classes
+                            need
                             be
                             purchased at the original
                             price.
@@ -254,7 +271,8 @@
                             <h1 class="mb-0 text-white">€ 299.99</h1>
                             <h5 class="mb-0 text-white">Per Month</h5>
                         </section>
-                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Middle level member, you can participate in
+                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Middle level member, you can
+                            participate in
                             some
                             courses for free, and pay a 30% discount on other courses.
                         </p>
@@ -273,7 +291,8 @@
                             <h1 class="mb-0 text-white">€ 999.99</h1>
                             <h5 class="mb-0 text-white">Per Month</h5>
                         </section>
-                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Prime level member, You can participate in
+                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Prime level member, You can
+                            participate in
                             all
                             courses without paying additional course fees (excluding self-paid equipment, etc.).
                         </p>
@@ -285,12 +304,32 @@
                     </section>
                 </section>
             </div>
+            <section class="flow-container">
+                <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
+
+                <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
+
+                <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
+                <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
+
+                <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
+            </section>
         </section>
     </section>
     <?php include './app/views/footer.php' ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js" ></script>
 </body>
 
 </html>
