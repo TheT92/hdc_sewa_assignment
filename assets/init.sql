@@ -26,9 +26,8 @@ create table if not exists sewagroup.class(
   `id` INT UNIQUE AUTO_INCREMENT,
   `class_name` varchar(50) not null,
   `class_cover_img` varchar(100) not null,
-  `class_intro` varchar(300) not null,
+  `class_intro` varchar(1000) not null,
   `class_time` varchar(50) not null,
-  `active_now` INT default 0 not null,
   `member_level` INT not null,
   `del_flag` INT default 0 not null,
   PRIMARY KEY(id),
@@ -80,4 +79,4 @@ insert ignore into sewagroup.class(
                                 Shorter Walk Challenge: 18 km 1200 m ascent (guided)','Saturday, June 29th',3); 
 insert ignore into sewagroup.class(
   `id`,`class_name`,`class_intro`,`class_time`,`member_level`
-) VALUES (4,'Cycling around animals',' Cycling is an enjoyable way to stay healthy, including helping you lose weight, lower your cholesterol and strengthen your legs.','Saturday, June 29th',0);
+) VALUES (4,'Cycling around animals',' Cycling is an enjoyable way to stay healthy, including helping you lose weight, lower your cholesterol and strengthen your legs.','Saturday, June 29th',1); 

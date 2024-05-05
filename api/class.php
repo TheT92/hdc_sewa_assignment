@@ -1,10 +1,8 @@
 <?php
-function classlist()
-{
-    include ("databaseVariables.php");
-    $conn = new PDO("mysql:host=$servername", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT * FROM sewagroup.user where email = '$email' and password = '$psw' and del_flag != 1";
-    $result = $conn->query($sql);
-    return $result;
-};
+include("databaseVariables.php");
+$conn = new PDO("mysql:host=$servername", $username, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql = "SELECT `id`,`class_name`,`class_intro`,`class_time`,`member_level` FROM sewagroup.class";
+$classList = $conn->query($sql);
+return $classList;
