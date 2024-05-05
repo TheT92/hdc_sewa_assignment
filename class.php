@@ -13,7 +13,7 @@
 <body id="class" class="page-container">
     <?php include './app/views/header.php' ?>
     <?php include "./api/class.php" ?>
-
+    <section class="banner"></section>
     <section class="new-classes p-4 pb-2">
         <h3 class="new-clas-title d-flex align-items-center justify-content-between mb-3 fw-bold text-color-primary">
             CLASSES

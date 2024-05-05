@@ -1,6 +1,13 @@
 #class {
-    background: url('../images/greenbackground.jpg') 50% no-repeat;
-    background-size: cover;
+    position: relative;
+    .banner {
+        margin-bottom: -10vw;
+        width: 100%;
+        height: 40vw;
+        background: url('../images/greenbackground.jpg') 50% no-repeat;
+        background-size: cover;
+        background-position: bottom;
+    }
 }
 
 .class-list {
