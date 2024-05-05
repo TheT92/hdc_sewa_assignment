@@ -116,7 +116,7 @@ insert ignore into sewagroup.classdetail(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`, `page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (2, 2, 'classdetail2.php', './images/image1.jpg', '1. Cultivation of physical fitness. 2. Cultivate etiquette and patience. 3. Cultivate self-discipline.',
+) VALUES (2, 2, 'classdetail2.php', './images/img1.jpg', '1. Cultivation of physical fitness. 2. Cultivate etiquette and patience. 3. Cultivate self-discipline.',
                                 'Golf is a sport that cultivates children flexibility, coordination, and explosiveness, which can help them strengthen their 
                                 physical fitness and develop better. At the same time, golf is an outdoor sport that allows children to play in the grass and 
                                 sunlight, giving them ample outdoor time. At the same time, cultivate children politeness and patience. Many golf rules and 
@@ -125,6 +125,6 @@ insert ignore into sewagroup.classdetail(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (3, 3,'classdetail3.php', './images/image2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
+) VALUES (3, 3,'classdetail3.php', './images/img2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
                                 helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
                                 leisurely walk.',3);

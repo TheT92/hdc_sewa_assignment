@@ -22,7 +22,7 @@
             while ($row = $classList->fetch(PDO::FETCH_ASSOC)) {
                 echo '<section class="class-wrap col-12 col-sm-6 col-lg-3 col-xxl-3 mb-4">';
                 echo '<section class="class-item">';
-                echo '<a class="text-decoration-none" href=#>';
+                echo '<a class="text-decoration-none" href="classdetail.php?id='. $row['id'] .'">';
                 echo '<section class="img overflow-hidden">';
                 echo "<span class='img-inner' style='background-image:url(\"images/img10.jpg\");'></span></section>";
                 echo '<section class="class-detail p-3 d-flex flex-column align-items-center">';
