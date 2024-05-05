@@ -57,6 +57,10 @@
             $isValid = false;
             $passwordErr = 'Password and confirmation password are inconsistent.';
         }
+        if (checkEmail($email) > 0) {
+            $isValid = false;
+            $emailErr = 'Email address already exists!';
+        }
         if ($isValid) {
             $result = registerAccount($firstname, $surname, $email, $password, $memberLevel);
             if ($result) {

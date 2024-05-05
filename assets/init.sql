@@ -13,7 +13,7 @@ create table if not exists sewagroup.user(
   `id` INT UNIQUE AUTO_INCREMENT,
   `firstname` varchar(50) not null,
   `surname` varchar(50) not null,
-  `email` varchar(80) not null,
+  `email` varchar(80) UNIQUE not null,
   `password` varchar(100) not null,
   `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,
   `last_login` timestamp DEFAULT CURRENT_TIMESTAMP not null,
@@ -64,17 +64,20 @@ insert ignore into sewagroup.class(
                                 Check with local golf clubs hosting Get Into Golf programs in 2024.
                                 On-course guidance alongside continual range training for ongoing assessment and development.
                                 Players play individually to build skills and find their playing style.','Every Saturday from May to October',2);
--- insert ignore into sewagroup.class(
---   `id`,`class_name`,`class_intro`,`class_time`,`member_level`
--- ) VALUES (2,'Teen Golf Course','If you’re between the ages of 7 - 13, then junior golf classes and camps are perfect for you.
---                                     These programs are usually aimed at children who are at the beginning of their golf journey.
---                                     The Outdoor Golf offers weekly classes for young golfers and runs various camps throughout the year.
---                                     These activities include a mixture of team-based games and individual tuition to help develop golf skills.','Sunday',1);
--- insert ignore into sewagroup.class(
---   `id`,`clss_name`,`class_intro`,`class_time`,`member_level`
--- ) VALUES (3,'Challenge Walk',' This year will mark the 20th anniversary of the event and it will no doubt be an historic occasion.
---                                 The Challenge walk will be held on Saturday June 29th.
---                                 This year, in addition to the self-navigated, we are offering the option of a shorter route as part of a guided group.
---                                 Participants will receive a certificate, gift and a hot meal afterwards.
---                                 Full Walk Challenge: 31 km 1700 m ascent (self-navigated)
---                                 Shorter Walk Challenge: 18 km 1200 m ascent (guided)','Saturday, June 29th',3); 
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+) VALUES (2,'Teen Golf Course','If you’re between the ages of 7 - 13, then junior golf classes and camps are perfect for you.
+                                    These programs are usually aimed at children who are at the beginning of their golf journey.
+                                    The Outdoor Golf offers weekly classes for young golfers and runs various camps throughout the year.
+                                    These activities include a mixture of team-based games and individual tuition to help develop golf skills.','Sunday',1);
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+) VALUES (3,'Challenge Walk',' This year will mark the 20th anniversary of the event and it will no doubt be an historic occasion.
+                                The Challenge walk will be held on Saturday June 29th.
+                                This year, in addition to the self-navigated, we are offering the option of a shorter route as part of a guided group.
+                                Participants will receive a certificate, gift and a hot meal afterwards.
+                                Full Walk Challenge: 31 km 1700 m ascent (self-navigated)
+                                Shorter Walk Challenge: 18 km 1200 m ascent (guided)','Saturday, June 29th',3); 
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+) VALUES (4,'Cycling around animals',' Cycling is an enjoyable way to stay healthy, including helping you lose weight, lower your cholesterol and strengthen your legs.','Saturday, June 29th',0);
