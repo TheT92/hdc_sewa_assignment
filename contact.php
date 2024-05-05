@@ -17,33 +17,22 @@
     $firstNameErr = "";
     $lastNameErr = "";
     $emailErr = "";
-    $isValid = true;
+    $phonenoErr = "";
+    $messageErr = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $phoneno = $_POST['phoneno'];
         if (empty(($email))) {
             $isValid = false;
             $emailErr = 'Email address required.';
         }
-        if (empty($password)) {
+        if (empty($phoneno)) {
             $isValid = false;
-            $passwordErr = 'Password required.';
+            $phonenoErr = 'Phone number required.';
         }
-        if ($isValid) {
-            $result = login($email, $password);
-            $rowCount = $result->rowCount();
-            if ($rowCount > 0) {
-                $_SESSION['email'] = $email;
-                $email = $password = "";
-                header("Location: " . "index.php");
-                exit();
-            } else {
-                if ($rowCount == 0) {
-                    $loginErr = "email/password incorrect.";
-                } else {
-                    $loginErr = "Login failed, please try again later.";
-                }
-            }
+        if (empty($message)) {
+            $isValid = false;
+            $phonenoErr = 'Message required.';
         }
     }
     ?>
