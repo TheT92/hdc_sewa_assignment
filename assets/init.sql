@@ -47,6 +47,29 @@ create table if not exists sewagroup.contact(
   FOREIGN KEY(member_level) REFERENCES sewagroup.member_level(id)
 );
 
+create table if not exists sewagroup.classdetail(
+  `id` INT UNIQUE AUTO_INCREMENT,
+  `class_id` INT NOT NULL,
+  `page_name` varchar(50) not null,
+  `class_image` varchar(100) not null,
+  `description` varchar(1000) not null,
+  `class_detail` varchar(1000) not null,
+  `required_priority` INT NOT NULL,
+  `del_flag` INT DEFAULT 0 NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id)
+);
+
+create table if not exists sewagroup.testimonial(
+  `id` INT UNIQUE AUTO_INCREMENT,
+  `content` TEXT NOT NULL,
+  `user_id` INT NOT NULL,
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `del_flag` INT DEFAULT 0 NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)
+);
+
 insert ignore into sewagroup.member_level(
   `id`, `name`, `fee`, `priority`, `desc`
 ) VALUES (1, 'Public', 0, 1, 'No membership fee member, all classes need be purchased at the original price.');
@@ -80,3 +103,28 @@ insert ignore into sewagroup.class(
 insert ignore into sewagroup.class(
   `id`,`class_name`,`class_intro`,`class_time`,`member_level`
 ) VALUES (4,'Cycling around animals',' Cycling is an enjoyable way to stay healthy, including helping you lose weight, lower your cholesterol and strengthen your legs.','Saturday, June 29th',1); 
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
+) VALUES (1, 1, 'classdetail1.php', './images/img10.jpg', '1. Master golf etiquette and culture. 2. Have a basic understanding of golf swing and putting techniques. 
+                                3. Have a basic understanding of the golf course and rules. 4. Cultivate excellent courtesy, integrity, self-discipline, 
+                                and consideration for others.', 'Golf is a ball sport played on outdoor courts with unique landscapes. This sport places 
+                                great emphasis on the cultivation and etiquette of its participants. Golf is most influential spiritual cores are honesty, 
+                                self-discipline, and consideration for others. The word golf is composed of the first letters of four English words: green, oxygen, 
+                                light, and friendship, reflecting the golf realm of strolling, hitting, and making friends on the fresh and sunny green grass. Social 
+                                interaction is an essential function of golf.', 2);
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`, `page_name`, `class_image`, `description`, `class_detail`, `required_priority`
+) VALUES (2, 2, 'classdetail2.php', './images/image1.jpg', '1. Cultivation of physical fitness. 2. Cultivate etiquette and patience. 3. Cultivate self-discipline.',
+                                'Golf is a sport that cultivates children flexibility, coordination, and explosiveness, which can help them strengthen their 
+                                physical fitness and develop better. At the same time, golf is an outdoor sport that allows children to play in the grass and 
+                                sunlight, giving them ample outdoor time. At the same time, cultivate children politeness and patience. Many golf rules and 
+                                etiquette need to be followed. Children can continuously cultivate etiquette and adherence to regulations during their growth 
+                                process by playing golf from a young age.', 1);
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
+) VALUES (3, 3,'classdetail3.php', './images/image2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
+                                helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
+                                leisurely walk.',3);

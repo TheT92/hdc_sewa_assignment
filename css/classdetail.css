@@ -1,21 +1,22 @@
-.image{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.image img{
-    text-align: center;
+table{
     width: 80%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-    opacity: 1;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
+table, th, td {
+    border: 1px solid black;
+}
 
-@media (max-width: 768px){
-    .image img{
-        width: 50%;
-    }
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+th:first-child{
+    width: 30%;
 }
