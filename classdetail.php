@@ -20,6 +20,7 @@
             $image = $row['class_image'];
             $description = $row['description'];
             $pname = $row['page_name'];
+            $classdetail = $row['class_detail'];
         ?>
 
         <section class="classdetail-wrapper w-100">
@@ -29,10 +30,17 @@
                 </p>
 
                 <section class="content d-flex align-items-center justify-content-left mt-4">
-                    <?php echo "<img src='$image' class='d-block w-50 flow-img' alt='...'>";?>
-                    <p class="fs-5 mb-0 lh-1 fw-bold fst-italic me-5 text-left">
-                        <?php echo "$description";?>
-                    </p>
+                    <?php echo "<img src='$image' class='picture d-block w-60 flow-img' alt='...'>";?>
+                    <section class="p-4">
+                        <p class="fs-4 mb-0 text-color-primary p-1"><b>The Purpose Of The Course:</b></p>
+                        <p class="fs-5 mb-0 lh-1 fst-italic me-0 text-left p-1">
+                            <?php echo "$description";?>
+                        </p>
+                        <p class="fs-4 mb-0 text-color-primary p-1"><b>Course Introduction:</b></p>
+                        <p class="fs-5 mb-0 lh-1 fst-italic me-0 text-left p-1">
+                            <?php echo "$classdetail";?>
+                        </p>
+                    </section>
                 </section>
             </section>
 

@@ -7,5 +7,12 @@
         background: #00000070 !important;
         box-shadow: none;
     }
+}
 
+.content{
+    width: 100%;
+}
+
+.picture{
+    width: 60%;
 }
