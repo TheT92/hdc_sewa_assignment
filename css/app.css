@@ -80,6 +80,9 @@ footer {
         width: 6rem;
         height: 6rem;
     }
+    .link-text {
+        display: none !important;
+    }
 }
 
 @keyframes slideUp {

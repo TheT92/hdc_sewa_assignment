@@ -16,6 +16,7 @@ function checkEmail($email)
     $conn = new PDO("mysql:host=$servername", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query = "SELECT count(*) FROM sewagroup.user WHERE email = '$email'";
-    $row = $conn->query($query)->fetchAll();
-    return count($row);
+    $rows = $conn->query($query)->fetch();
+    echo $rows[0] ."";
+    return $rows[0];
 };
