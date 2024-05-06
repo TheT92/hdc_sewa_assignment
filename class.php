@@ -14,14 +14,14 @@
     <?php include './app/views/header.php' ?>
     <?php include "./api/class.php" ?>
     <section class="banner"></section>
-        <h1 class="new-clas-title d-flex align-items-center justify-content-between mb-3 fw-bold text-white">
+        <h1 class="new-clas-title d-flex align-items-center justify-content-between ps-5 mb-2 pb-2 fw-bold text-white">
             CLASSES
         </h1>
         <section class="row class-list">
             <?php
             while ($row = $classList->fetch(PDO::FETCH_ASSOC)) {
                 echo '<section class="class-wrap col-12 col-sm-6 col-lg-3 col-xxl-3 mb-4">';
-                echo '<section class="class-item">';
+                echo '<section class="class-item mt-5">';
                 echo '<a class="text-decoration-none" href="classdetail.php?id='. $row['id'] .'">';
                 echo '<section class="img overflow-hidden">';
                 echo "<span class='img-inner' style='background-image:url(\"images/img10.jpg\");'></span></section>";

@@ -128,3 +128,26 @@ insert ignore into sewagroup.classdetail(
 ) VALUES (3, 3,'classdetail3.php', './images/img2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
                                 helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
                                 leisurely walk.',3);
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+) VALUES (5,'Weekend Camping','There is a variety of glamping holidays to experience in Ireland. 
+                                If you are the type who likes some creature comforts but want to get back in touch with nature, then glamping is the perfect holiday for you. 
+                                Many parks throughout Ireland now offer glamping facilities. 
+                                People also use glamping facilities to holiday with friends or family who own a tent or caravan. 
+                                For information on glamping facilities available check out - Camping Ireland Bell tents were probably the first of the glamping options to come onstream. ','March-November',3);
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+) VALUES (6,'Scuba Diving','If you’re looking to escape from the daily barrage of news headlines, then there is no better place to be than 40 to 70 feet underwater in scuba gear, where the news simply cannot reach you.
+                            This is about the depth where you can place yourself in the middle of all kinds of underwater life, literally swimming through schools of fish and, occasionally, seeing a ray or turtle go by. 
+                            In locations where there are vertical coral walls, you can scuba dive along them, looking in all the nooks and crannies for everything from sea stars to moray eels. 
+                            The closer you look, the more you’ll see, and the very act of scuba diving will let you regulate your breathing and relax your heart rate.','Saturday, August 6th',3);
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+) VALUES (7,'Boat Trip',' A boat trip to the Saltee will give you the chance to see the island’s puffins up close. 
+                              Located 5km off the Wexford coastline, the islands are not only home to puffins but also razorbills, gannets, gulls and more. 
+                              The island is covered in bluebells in the summer months, and you can see old stone walls dotted along the island, a nod to the inhabitants who once farmed the land.','Saturday, June 29th',2); 
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+) VALUES (8,'Kayaking','If you’re looking for a popular, fun and exciting adventure activity for your group, why not book a few hours of kayaking or canoeing? 
+                                    Suitable for ages 8 and upwards, canoeing and kayaking are a fantastic way to enjoy the water with friends or colleagues.
+                                     We cater for corporate groups, hens/ stags and school trips with a range of skills sessions, kayak tours and entertaining paddling games.','March to August',1); 

@@ -19,6 +19,8 @@
     $emailErr = "";
     $phonenoErr = "";
     $messageErr = "";
+    $isValid = true;
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $phoneno = $_POST['phoneno'];
@@ -34,6 +36,16 @@
             $isValid = false;
             $phonenoErr = 'Message required.';
         }
+        if ($isValid) {
+            $result = contactus($firstname, $surname, $email, $phoneno, $message);
+            if ($result) {
+                $email = $phoneno = $message = "";
+                // ("Location: " . "contact.php");
+                exit();
+            } else {
+                $contactErr = "Send messasge failed, please try again later.";
+            }
+        }
     }
     ?>
     <section class="flex-1 d-flex justify-content-center align-items-center">
@@ -47,6 +59,7 @@
                 <section class="mb-2">
                     <label for="lastname" class="form-label">Last Name</label>
                     <input type="lastname" id="lastname" name="lastname" class="form-control" required>
+                    
                 </section>
                 <section class="mb-2">
                     <label for="email" class="form-label">Email address</label>
@@ -54,12 +67,16 @@
                     <span class="error text-danger"><?php echo $emailErr; ?></span>
 
                     <section class="mb-2">
-                        <label for="phonenumber" class="form-label">Phone Number</label>
-                        <input type="phonenumber" id="phonenumber" name="phonenumber" class="form-control" required>
+                        <label for="phoneno" class="form-label">Phone Number</label>
+                        <input type="phoneno" id="phoneno" name="phoneno" class="form-control" required>
+                        <span class="error text-danger"><?php echo $phonenoErr; ?></span>
+
                     </section>
                     <section class="mb-2">
                         <label for="message" class="form-label">Messsage</label>
                         <input type="message" id="message" name="message" class="form-control" required>
+                        <span class="error text-danger"><?php echo $messageErr; ?></span>
+
                     </section>
                     <button type="submit" class="btn btn-primary w-100 mb-2 bg-color-primary">SEND</button>
                 </section>
