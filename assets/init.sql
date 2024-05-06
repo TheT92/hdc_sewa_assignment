@@ -130,7 +130,7 @@ insert ignore into sewagroup.class(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (1, 1, 'classdetail1.php', './images/img10.jpg', '1. Master golf etiquette and culture. 2. Have a basic understanding of golf swing and putting techniques. 
+) VALUES (1, 1, 'Golf For Ladies', './images/img10.jpg', '1. Master golf etiquette and culture. 2. Have a basic understanding of golf swing and putting techniques. 
                                 3. Have a basic understanding of the golf course and rules. 4. Cultivate excellent courtesy, integrity, self-discipline, 
                                 and consideration for others.', 'Golf is a ball sport played on outdoor courts with unique landscapes. This sport places 
                                 great emphasis on the cultivation and etiquette of its participants. Golf is most influential spiritual cores are honesty, 
@@ -140,7 +140,7 @@ insert ignore into sewagroup.classdetail(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`, `page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (2, 2, 'classdetail2.php', './images/img1.jpg', '1. Cultivation of physical fitness. 2. Cultivate etiquette and patience. 3. Cultivate self-discipline.',
+) VALUES (2, 2, 'Teen Golf Course', './images/img1.jpg', '1. Cultivation of physical fitness. 2. Cultivate etiquette and patience. 3. Cultivate self-discipline.',
                                 'Golf is a sport that cultivates children flexibility, coordination, and explosiveness, which can help them strengthen their 
                                 physical fitness and develop better. At the same time, golf is an outdoor sport that allows children to play in the grass and 
                                 sunlight, giving them ample outdoor time. At the same time, cultivate children politeness and patience. Many golf rules and 
@@ -149,6 +149,6 @@ insert ignore into sewagroup.classdetail(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (3, 3,'classdetail3.php', './images/img2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
+) VALUES (3, 3,'Challenge Walk', './images/img2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
                                 helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
                                 leisurely walk.',3);
