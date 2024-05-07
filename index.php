@@ -78,7 +78,7 @@
             <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
         </section>
         <section class="introduction slide-up d-flex align-items-center justify-content-center p-4">
-            <p class="fs-1 mb-0 lh-1 fw-bold fst-italic me-5 text-center"><span
+            <p class="fs-1 mb-0 lh-1 fw-bold fst-italic me-5 text-center introduction-title"><span
                     class="text-color-primary">O</span>utdoor </br> Club
             </p>
             <section class="flex-1">

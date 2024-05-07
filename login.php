@@ -14,9 +14,7 @@
 
 <body id="login" class="page-container d-flex flex-column">
     <?php include './app/views/header.php' ?>
-    <?php
-    include ("./api/login.php");
-    ?>
+    <?php include ("./api/login.php") ?>
     <?php
     $loginErr = "";
     $emailErr = "";
@@ -37,7 +35,9 @@
             $result = login($email, $password);
             $rowCount = $result->rowCount();
             if ($rowCount > 0) {
+                $row = $result->fetch();
                 $_SESSION['email'] = $email;
+                $_SESSION['firstname'] = $row['firstname'];
                 $email = $password = "";
                 header("Location: " . "index.php");
                 exit();
