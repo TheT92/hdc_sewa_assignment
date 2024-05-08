@@ -59,13 +59,13 @@
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <section class="mb-2">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp">
+                    <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" required>
                     <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span><br />
                     <span class="error text-danger"><?php echo $emailErr; ?></span>
                 </section>
                 <section class="mb-2">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-control">
+                    <input type="password" id="password" name="password" class="form-control" required>
                     <span class="error text-danger"><?php echo $passwordErr; ?></span>
                 </section>
                 <p class="error text-danger text-center"><?php echo $loginErr; ?></p>
