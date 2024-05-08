@@ -54,7 +54,6 @@ create table if not exists sewagroup.classdetail(
   `class_image` varchar(100) not null,
   `description` varchar(1000) not null,
   `class_detail` varchar(1000) not null,
-  `required_priority` INT NOT NULL,
   `del_flag` INT DEFAULT 0 NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY(class_id) REFERENCES sewagroup.class(id)
@@ -63,12 +62,18 @@ create table if not exists sewagroup.classdetail(
 create table if not exists sewagroup.testimonial(
   `id` INT UNIQUE AUTO_INCREMENT,
   `content` TEXT NOT NULL,
+  `class_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   `del_flag` INT DEFAULT 0 NOT NULL,
   PRIMARY KEY(id),
+  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id),
   FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)
 );
+
+insert ignore into sewagroup.user(
+  `id`, `firstname`, `surname`, `email`, `password`, `member_level`
+) VALUES (1, 'Tom', 'Muphy', 'Tom@gamil.com', '123456', 1);
 
 insert ignore into sewagroup.member_level(
   `id`, `name`, `fee`, `priority`, `desc`
@@ -129,26 +134,42 @@ insert ignore into sewagroup.class(
                                      We cater for corporate groups, hens/ stags and school trips with a range of skills sessions, kayak tours and entertaining paddling games.','March to August',1, './images/img7.jpg'); 
 
 insert ignore into sewagroup.classdetail(
-  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (1, 1, 'Golf For Ladies', './images/img10.jpg', '1. Master golf etiquette and culture. 2. Have a basic understanding of golf swing and putting techniques. 
-                                3. Have a basic understanding of the golf course and rules. 4. Cultivate excellent courtesy, integrity, self-discipline, 
-                                and consideration for others.', 'Golf is a ball sport played on outdoor courts with unique landscapes. This sport places 
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
+) VALUES (1, 1, 'Golf For Ladies', './images/img10.jpg', '1. Master golf etiquette and culture.\n2. Have a basic understanding of golf swing and putting techniques.\n3. Have a basic understanding of the golf course and rules.\n4. Cultivate excellent courtesy, integrity, self-discipline, and consideration for others.', 
+                                'Golf is a ball sport played on outdoor courts with unique landscapes. This sport places 
                                 great emphasis on the cultivation and etiquette of its participants. Golf is most influential spiritual cores are honesty, 
                                 self-discipline, and consideration for others. The word golf is composed of the first letters of four English words: green, oxygen, 
                                 light, and friendship, reflecting the golf realm of strolling, hitting, and making friends on the fresh and sunny green grass. Social 
-                                interaction is an essential function of golf.', 2);
+                                interaction is an essential function of golf.');
 
 insert ignore into sewagroup.classdetail(
-  `id`,`class_id`, `page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (2, 2, 'Teen Golf Course', './images/img1.jpg', '1. Cultivation of physical fitness. 2. Cultivate etiquette and patience. 3. Cultivate self-discipline.',
+  `id`,`class_id`, `page_name`, `class_image`, `description`, `class_detail`
+) VALUES (2, 2, 'Teen Golf Course', './images/img1.jpg', '1. Cultivation of physical fitness.\n2. Cultivate etiquette and patience.\n3. Cultivate self-discipline.',
                                 'Golf is a sport that cultivates children flexibility, coordination, and explosiveness, which can help them strengthen their 
                                 physical fitness and develop better. At the same time, golf is an outdoor sport that allows children to play in the grass and 
                                 sunlight, giving them ample outdoor time. At the same time, cultivate children politeness and patience. Many golf rules and 
                                 etiquette need to be followed. Children can continuously cultivate etiquette and adherence to regulations during their growth 
-                                process by playing golf from a young age.', 1);
+                                process by playing golf from a young age.');
 
 insert ignore into sewagroup.classdetail(
-  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
-) VALUES (3, 3,'Challenge Walk', './images/img2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
-                                helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
-                                leisurely walk.',3);
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
+) VALUES (3, 3,'Challenge Walk', './images/img2.jpg', '1. A course to experience the world.\n2. Can effectively strengthen the body and keep fit.\n3. Courses that are also helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
+                                leisurely walk.');
+
+insert ignore into sewagroup.testimonial(
+  `id`, `content`, `class_id`, `user_id`
+) VALUES (1, 'Nice Class!', 1, 1);
+
+insert ignore into sewagroup.testimonial(
+  `id`, `content`, `class_id`, `user_id`
+) VALUES (2, 'Every coach are very kind and nice!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', 1, 1);
+
+insert ignore into sewagroup.testimonial(
+  `id`, `content`, `class_id`, `user_id`
+) VALUES (3, 'I am very enjoy the class', 1, 1);
+
+insert ignore into sewagroup.testimonial(
+  `id`, `content`, `class_id`, `user_id`
+) VALUES (4, 'Every coach are very kind and nice!', 1, 1);
+
+
