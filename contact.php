@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/contact.css" />
     <title>Contact Info</title>
@@ -13,9 +12,10 @@
 
 <body id="contact" class="page-container d-flex flex-column justify-content-center">
     <?php include './app/views/header.php' ?>
+    <?php include './api/contactus.php' ?>
     <?php
     $firstNameErr = "";
-    $lastNameErr = "";
+    $surnameErr = "";
     $emailErr = "";
     $phonenoErr = "";
     $messageErr = "";
@@ -24,6 +24,9 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $phoneno = $_POST['phoneno'];
+        $firstname = $_POST['firstname'];
+        $surname = $_POST['surname'];
+        $message = $_POST['message'];
         if (empty(($email))) {
             $isValid = false;
             $emailErr = 'Email address required.';
@@ -40,7 +43,7 @@
             $result = contactus($firstname, $surname, $email, $phoneno, $message);
             if ($result) {
                 $email = $phoneno = $message = "";
-                // ("Location: " . "contact.php");
+                ("Location: " . "index.php");
                 exit();
             } else {
                 $contactErr = "Send messasge failed, please try again later.";
@@ -54,12 +57,12 @@
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <section class="mb-2">
                     <label for="firstname" class="form-label">First Name</label>
-                    <input type="firstname" id="firstname" name="firstname" class="form-control" required>
+                    <input type="text" id="firstname" name="firstname" class="form-control" required>
                 </section>
                 <section class="mb-2">
-                    <label for="lastname" class="form-label">Last Name</label>
-                    <input type="lastname" id="lastname" name="lastname" class="form-control" required>
-                    
+                    <label for="surname" class="form-label">Last Name</label>
+                    <input type="text" id="surname" name="surname" class="form-control" required>
+
                 </section>
                 <section class="mb-2">
                     <label for="email" class="form-label">Email address</label>
@@ -68,13 +71,13 @@
 
                     <section class="mb-2">
                         <label for="phoneno" class="form-label">Phone Number</label>
-                        <input type="phoneno" id="phoneno" name="phoneno" class="form-control" required>
+                        <input type="text" id="phoneno" name="phoneno" class="form-control" required>
                         <span class="error text-danger"><?php echo $phonenoErr; ?></span>
 
                     </section>
-                    <section class="mb-2">
+                    <section class="mb-3">
                         <label for="message" class="form-label">Messsage</label>
-                        <input type="message" id="message" name="message" class="form-control" required>
+                        <textarea  id="message" name="message" class="form-control" required></textarea>
                         <span class="error text-danger"><?php echo $messageErr; ?></span>
 
                     </section>
@@ -84,9 +87,7 @@
         </section>
     </section>
     <?php include './app/views/footer.php' ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js" ></script>
 </body>
 
 </html>

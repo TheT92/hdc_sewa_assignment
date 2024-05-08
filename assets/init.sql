@@ -41,10 +41,10 @@ create table if not exists sewagroup.contact(
   `phoneno` INT not null,
   `message` varchar(1000) not null,
   `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,
-  `member_level` INT default 0 not null,
+  `user_id` INT,
   `del_flag` INT default 0 not null,
   PRIMARY KEY(id),
-  FOREIGN KEY(member_level) REFERENCES sewagroup.member_level(id)
+  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)
 );
 
 create table if not exists sewagroup.classdetail(
@@ -80,29 +80,53 @@ insert ignore into sewagroup.member_level(
   `id`, `name`, `fee`, `priority`, `desc`
 ) VALUES (3, 'Prime', 999.99, 3, 'Prime level member, You can participate in all courses without paying additional course fees (excluding self-paid equipment, etc.)');
 insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
 ) VALUES (1,'Golf For Ladies','Getting into golf via a Women’s Get Into Golf (GIG) program has been a positive way for thousands of women to learn the sport in a supported environment.
                                 Supported learning, skill development, and social interaction.    
                                 Check with local golf clubs hosting Get Into Golf programs in 2024.
                                 On-course guidance alongside continual range training for ongoing assessment and development.
-                                Players play individually to build skills and find their playing style.','Every Saturday from May to October',2);
+                                Players play individually to build skills and find their playing style.','Every Saturday from May to October',2, './images/img1.jpg');
 insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
 ) VALUES (2,'Teen Golf Course','If you’re between the ages of 7 - 13, then junior golf classes and camps are perfect for you.
                                     These programs are usually aimed at children who are at the beginning of their golf journey.
                                     The Outdoor Golf offers weekly classes for young golfers and runs various camps throughout the year.
-                                    These activities include a mixture of team-based games and individual tuition to help develop golf skills.','Sunday',1);
+                                    These activities include a mixture of team-based games and individual tuition to help develop golf skills.','Sunday',1, './images/img2.jpg');
 insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
 ) VALUES (3,'Challenge Walk',' This year will mark the 20th anniversary of the event and it will no doubt be an historic occasion.
                                 The Challenge walk will be held on Saturday June 29th.
                                 This year, in addition to the self-navigated, we are offering the option of a shorter route as part of a guided group.
                                 Participants will receive a certificate, gift and a hot meal afterwards.
                                 Full Walk Challenge: 31 km 1700 m ascent (self-navigated)
-                                Shorter Walk Challenge: 18 km 1200 m ascent (guided)','Saturday, June 29th',3); 
+                                Shorter Walk Challenge: 18 km 1200 m ascent (guided)','Saturday, June 29th',3, './images/img3.jpg'); 
 insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
-) VALUES (4,'Cycling around animals',' Cycling is an enjoyable way to stay healthy, including helping you lose weight, lower your cholesterol and strengthen your legs.','Saturday, June 29th',1); 
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
+) VALUES (4,'Cycling around animals',' Cycling is an enjoyable way to stay healthy, including helping you lose weight, lower your cholesterol and strengthen your legs.','Saturday, June 29th',1, './images/img4.jpg');
+
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
+) VALUES (5,'Weekend Camping','There is a variety of glamping holidays to experience in Ireland. 
+                                If you are the type who likes some creature comforts but want to get back in touch with nature, then glamping is the perfect holiday for you. 
+                                Many parks throughout Ireland now offer glamping facilities. 
+                                People also use glamping facilities to holiday with friends or family who own a tent or caravan. 
+                                For information on glamping facilities available check out - Camping Ireland Bell tents were probably the first of the glamping options to come onstream. ','March-November',3, './images/img5.jpg');
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
+) VALUES (6,'Scuba Diving','If you’re looking to escape from the daily barrage of news headlines, then there is no better place to be than 40 to 70 feet underwater in scuba gear, where the news simply cannot reach you.
+                            This is about the depth where you can place yourself in the middle of all kinds of underwater life, literally swimming through schools of fish and, occasionally, seeing a ray or turtle go by. 
+                            In locations where there are vertical coral walls, you can scuba dive along them, looking in all the nooks and crannies for everything from sea stars to moray eels. 
+                            The closer you look, the more you’ll see, and the very act of scuba diving will let you regulate your breathing and relax your heart rate.','Saturday, August 6th',3, './images/img8.jpg');
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
+) VALUES (7,'Boat Trip',' A boat trip to the Saltee will give you the chance to see the island’s puffins up close. 
+                              Located 5km off the Wexford coastline, the islands are not only home to puffins but also razorbills, gannets, gulls and more. 
+                              The island is covered in bluebells in the summer months, and you can see old stone walls dotted along the island, a nod to the inhabitants who once farmed the land.','Saturday, June 29th',2, './images/img6.jpg'); 
+insert ignore into sewagroup.class(
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
+) VALUES (8,'Kayaking','If you’re looking for a popular, fun and exciting adventure activity for your group, why not book a few hours of kayaking or canoeing? 
+                                    Suitable for ages 8 and upwards, canoeing and kayaking are a fantastic way to enjoy the water with friends or colleagues.
+                                     We cater for corporate groups, hens/ stags and school trips with a range of skills sessions, kayak tours and entertaining paddling games.','March to August',1, './images/img7.jpg'); 
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`, `required_priority`
@@ -128,26 +152,3 @@ insert ignore into sewagroup.classdetail(
 ) VALUES (3, 3,'classdetail3.php', './images/img2.jpg', '1. A course to experience the world. 2. Can effectively strengthen the body and keep fit. 3. Courses that are also 
                                 helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
                                 leisurely walk.',3);
-insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
-) VALUES (5,'Weekend Camping','There is a variety of glamping holidays to experience in Ireland. 
-                                If you are the type who likes some creature comforts but want to get back in touch with nature, then glamping is the perfect holiday for you. 
-                                Many parks throughout Ireland now offer glamping facilities. 
-                                People also use glamping facilities to holiday with friends or family who own a tent or caravan. 
-                                For information on glamping facilities available check out - Camping Ireland Bell tents were probably the first of the glamping options to come onstream. ','March-November',3);
-insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
-) VALUES (6,'Scuba Diving','If you’re looking to escape from the daily barrage of news headlines, then there is no better place to be than 40 to 70 feet underwater in scuba gear, where the news simply cannot reach you.
-                            This is about the depth where you can place yourself in the middle of all kinds of underwater life, literally swimming through schools of fish and, occasionally, seeing a ray or turtle go by. 
-                            In locations where there are vertical coral walls, you can scuba dive along them, looking in all the nooks and crannies for everything from sea stars to moray eels. 
-                            The closer you look, the more you’ll see, and the very act of scuba diving will let you regulate your breathing and relax your heart rate.','Saturday, August 6th',3);
-insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
-) VALUES (7,'Boat Trip',' A boat trip to the Saltee will give you the chance to see the island’s puffins up close. 
-                              Located 5km off the Wexford coastline, the islands are not only home to puffins but also razorbills, gannets, gulls and more. 
-                              The island is covered in bluebells in the summer months, and you can see old stone walls dotted along the island, a nod to the inhabitants who once farmed the land.','Saturday, June 29th',2); 
-insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`
-) VALUES (8,'Kayaking','If you’re looking for a popular, fun and exciting adventure activity for your group, why not book a few hours of kayaking or canoeing? 
-                                    Suitable for ages 8 and upwards, canoeing and kayaking are a fantastic way to enjoy the water with friends or colleagues.
-                                     We cater for corporate groups, hens/ stags and school trips with a range of skills sessions, kayak tours and entertaining paddling games.','March to August',1); 

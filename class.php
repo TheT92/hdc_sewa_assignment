@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/class.css" />
     <title>Classes</title>
@@ -14,28 +14,25 @@
     <?php include './app/views/header.php' ?>
     <?php include "./api/class.php" ?>
     <section class="banner"></section>
-        <h1 class="new-clas-title d-flex align-items-center justify-content-between ps-5 mb-2 pb-2 fw-bold text-white">
-            CLASSES
-        </h1>
-        <section class="row class-list p-4 content-box">
+    <h1 class="new-clas-title p-4 fw-bold mb-0 text-white">CLASSES</h1>
+    <section class="content-box p-4">
+        <section class="row class-list">
             <?php
             while ($row = $classList->fetch(PDO::FETCH_ASSOC)) {
-                echo '<section class="class-wrap col-12 col-sm-6 col-lg-4 col-xxl-3 mb-4">';
-                echo '<section class="class-item">';
-                echo '<a class="text-decoration-none" href="classdetail.php?id='. $row['id'] .'">';
+                echo '<section class="class-item d-flex col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4">';
                 echo '<section class="img overflow-hidden">';
-                echo "<span class='img-inner' style='background-image:url(\"images/img10.jpg\");'></span></section>";
-                echo '<section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">';
-                echo '<h5 class="class-name fs-5 text-white text-center">' . $row['class_name'] . '</h5>';
-                echo '<span class="class-desc fs-6 overflow-hidden text-white text-center">' . $row['class_intro'];
-                echo '<span></section></a></section></section>';
+                echo "<span class='img-inner' style='background-image:url(\"" . $row['class_cover_img'] . "\");'></span></section>";
+                echo '<section class="class-detail border-color-primary bg-white flex-1 p-3 d-flex flex-column">';
+                echo '<section class="flex-1 d-flex flex-column mb-2"><h5 class="class-name fs-5 text-color-primary">' . $row['class_name'] . '</h5>';
+                echo '<span class="class-desc fs-6 overflow-hidden">' . $row['class_intro'];
+                echo '</span></section><a href="classdetail.php?id=' . $row['id'] . '" class="class-link bg-white text-decoration-none w-100 d-block text-center p-2 text-color-primary">VIEW CLASS</a></section></section>';
             }
 
             ?>
-
         </section>
+    </section>
     <?php include './app/views/footer.php' ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js" ></script>
 </body>
 
 </html>
