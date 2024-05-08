@@ -77,7 +77,7 @@
             <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
             <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
         </section>
-        <section class="introduction slide-up d-flex align-items-center justify-content-center p-4">
+        <section class="content-box introduction slide-up d-flex align-items-center justify-content-center p-4">
             <p class="fs-1 mb-0 lh-1 fw-bold fst-italic me-5 text-center introduction-title"><span
                     class="text-color-primary">O</span>utdoor </br> Club
             </p>
@@ -95,7 +95,7 @@
                 <p><b>You are always welcome to join our club!</b></p>
             </section>
         </section>
-        <section class="new-classes p-4">
+        <section class="content-box new-classes p-4">
             <p class="new-class-title text-color-primary fs-1 d-flex align-items-center justify-content-between mb-3">
                 NEW CLASSES
                 <a href="class.php"
@@ -179,7 +179,7 @@
                 </section>
             </section>
         </section>
-        <section class="special-offers p-4">
+        <section class="content-box special-offers p-4">
             <p class="special-offers-title text-color-primary fs-1 d-flex justify-content-between mb-3">
                 SPECIAL OFFERS
             </p>
@@ -241,7 +241,7 @@
             </section>
 
         </section>
-        <section class="membership p-4">
+        <section class="content-box membership p-4">
             <p class="text-center mb-4 fs-1 text-white">MEMBERSHIP</p>
             <div class="d-flex member-list justify-content-center">
                 <section class="d-flex flex-1 flex-column me-4 mb-4 p-0 member-item text-center overflow-hidden">

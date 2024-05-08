@@ -17,16 +17,16 @@
         <h1 class="new-clas-title d-flex align-items-center justify-content-between ps-5 mb-2 pb-2 fw-bold text-white">
             CLASSES
         </h1>
-        <section class="row class-list">
+        <section class="row class-list p-4 content-box">
             <?php
             while ($row = $classList->fetch(PDO::FETCH_ASSOC)) {
-                echo '<section class="class-wrap col-12 col-sm-6 col-lg-3 col-xxl-3 mb-4">';
-                echo '<section class="class-item mt-5">';
+                echo '<section class="class-wrap col-12 col-sm-6 col-lg-4 col-xxl-3 mb-4">';
+                echo '<section class="class-item">';
                 echo '<a class="text-decoration-none" href="classdetail.php?id='. $row['id'] .'">';
                 echo '<section class="img overflow-hidden">';
                 echo "<span class='img-inner' style='background-image:url(\"images/img10.jpg\");'></span></section>";
-                echo '<section class="class-detail p-3 d-flex flex-column align-items-center">';
-                echo '<h5 class="class-name mb-3 mt-5 fs-5 text-white text-center">' . $row['class_name'] . '</h5>';
+                echo '<section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">';
+                echo '<h5 class="class-name fs-5 text-white text-center">' . $row['class_name'] . '</h5>';
                 echo '<span class="class-desc fs-6 overflow-hidden text-white text-center">' . $row['class_intro'];
                 echo '<span></section></a></section></section>';
             }

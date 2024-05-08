@@ -87,6 +87,14 @@ footer {
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .content-box {
+        padding-left: 15vw !important;
+        padding-right: 15vw !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
 @keyframes slideUp {
     from {
         opacity: 0;
