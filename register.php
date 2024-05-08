@@ -82,28 +82,28 @@
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <section class="mb-2">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp">
+                    <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" required>
                     <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span><br />
                     <span class="error text-danger"><?php echo $emailErr; ?></span>
                 </section>
                 <section class="mb-2">
                     <label for="firstname" class="form-label">Firstname</label>
-                    <input type="text" id="firstname" name="firstname" class="form-control">
+                    <input type="text" id="firstname" name="firstname" class="form-control" required>
                     <span class="error text-danger"><?php echo $firstnameErr; ?></span>
                 </section>
                 <section class="mb-2">
                     <label for="surname" class="form-label">Surname</label>
-                    <input type="text" id="surname" name="surname" class="form-control">
+                    <input type="text" id="surname" name="surname" class="form-control" required>
                     <span class="error text-danger"><?php echo $surnameErr; ?></span>
                 </section>
                 <section class="mb-2">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-control">
+                    <input type="password" id="password" name="password" class="form-control" required>
                     <span class="error text-danger"><?php echo $passwordErr; ?></span>
                 </section>
                 <section class="mb-4">
                     <label for="repeatPassword" class="form-label">Confirm Password</label>
-                    <input type="password" id="repeatPassword" name="repeatPassword" class="form-control">
+                    <input type="password" id="repeatPassword" name="repeatPassword" class="form-control" required>
                     <span class="error text-danger"><?php echo $repeatPasswordErr; ?></span>
                 </section>
                 <section class="mb-4">
