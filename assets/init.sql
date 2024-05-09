@@ -128,7 +128,7 @@ insert ignore into sewagroup.class(
                               Located 5km off the Wexford coastline, the islands are not only home to puffins but also razorbills, gannets, gulls and more. 
                               The island is covered in bluebells in the summer months, and you can see old stone walls dotted along the island, a nod to the inhabitants who once farmed the land.','Saturday, June 29th',2, './images/img6.jpg'); 
 insert ignore into sewagroup.class(
-  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`
+  `id`,`class_name`,`class_intro`,`class_time`,`member_level`, `class_cover_img`  
 ) VALUES (8,'Kayaking','If you’re looking for a popular, fun and exciting adventure activity for your group, why not book a few hours of kayaking or canoeing? 
                                     Suitable for ages 8 and upwards, canoeing and kayaking are a fantastic way to enjoy the water with friends or colleagues.
                                      We cater for corporate groups, hens/ stags and school trips with a range of skills sessions, kayak tours and entertaining paddling games.','March to August',1, './images/img7.jpg'); 
@@ -154,7 +154,32 @@ insert ignore into sewagroup.classdetail(
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
 ) VALUES (3, 3,'Challenge Walk', './images/img2.jpg', '1. A course to experience the world.\n2. Can effectively strengthen the body and keep fit.\n3. Courses that are also helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
-                                leisurely walk.');
+                                leisurely walk. We will also issue challenge notices from time to time.');
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
+) VALUES (4, 4,'Cycling around animals', './images/img2.jpg', '1. Get closer to nature.\n2. Close contact with animals.\n3. Strengthening the body and keeping fit.\n4. Relieve stress', 
+                                'This course will be led by a professional coach. The coach will ride through the forest and observe small animals up close. Along the way, you can also enjoy the beautiful scenery of nature. This course mainly aims to relieve stress and exercise the body.');
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
+) VALUES (5, 5,'Weekend Camping', './images/img2.jpg', '1. Reduce stress.\n2. Develop new skills.\n3. Improve interpersonal relationships.\n4. Stay away from electronic screens.\n5. Improve memory.', 
+                                'Camping is an excellent way to stay away from the hustle and bustle of the city and get close to nature. Stay away from daily stress and enjoy a peaceful environment. On an outdoor night, you can look at the starry sky and appreciate the scattered stars. Of course, bonfires are a great pleasure when camping. Camping is usually a social activity. You can have a good time with family or other outdoor friends.');
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
+) VALUES (6, 6,'Scuba Diving', './images/img2.jpg', '1. Improve cardiovascular health.\n2. Reduce stress.\n3. Improve balance and coordination skills.\n4. Explore the underwater world.\n5. Enhance self-confidence and courage.', 
+                                'This course mainly aims to cultivate self-confidence and courage, explore the underwater world and appreciate the other side of the world. During this process, professional diving coaches will follow.');
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
+) VALUES (7, 7,'Boat Trip', './images/img2.jpg', '1. A peaceful and relaxing experience.\n2. Beautiful scenery and unique perspectives.\n3. Opportunities for adventure.', 
+                                'During this process, you can enjoy the sea views along the way. Food can be thrown into the air to attract flocks of birds, or feed can be used to make schools of fish surface. We will also visit various small islands on Saturdays when the weather allows, enriching the journey.');
+
+insert ignore into sewagroup.classdetail(
+  `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
+) VALUES (8, 8,'Kayaking', './images/img2.jpg', '1. Fully exercise physical fitness.\n2. Create a perfect body shape.\n3. Promote the development of focus.\n4. Teamwork.', 
+                                'In the kayaking project, you can cultivate team skills, enhance relationships with friends, and enjoy the scenery on both sides of the river. Of course, if you want to enjoy quiet time alone, we also offer single kayak events. In May, we hold a kayak competition every year, and the winner will receive a kayak we send out.');
 
 insert ignore into sewagroup.testimonial(
   `id`, `content`, `class_id`, `user_id`
