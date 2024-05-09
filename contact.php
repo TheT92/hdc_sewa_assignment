@@ -44,7 +44,7 @@
             $result = contactus($firstname, $surname, $email, $phoneno, $message);
             if ($result) {
                 $email = $phoneno = $message = "";
-                ("Location: " . "index.php");
+                header("Location: " . "index.php");
                 exit();
             } else {
                 $contactErr = "Send messasge failed, please try again later.";
