@@ -14,43 +14,49 @@
 <body id="index" class="page-container d-flex flex-column">
     <?php require './api/initdata.php' ?>
     <?php include './app/views/header.php' ?>
+    <?php include './api/getMemberLevels.php' ?>
+    <?php
+    include './api/index.php';
+    $newClasses = getNewClasses();
+    $specialOffers = getSpecialOffers();
+    ?>
     <section class="banner w-100">
-        <div id="swiper" class="carousel slide carousel-fade swiper w-100 h-100" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item w-100 h-100 active" data-bs-interval="8000">
+        <section id="swiper" class="carousel slide carousel-fade swiper w-100 h-100" data-bs-ride="carousel">
+            <section class="carousel-inner">
+                <section class="carousel-item w-100 h-100 active" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img1.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img2.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img3.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img4.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img5.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img6.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img7.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img8.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img9.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img10.jpg');"></span>
-                </div>
-                <div class="carousel-item w-100 h-100" data-bs-interval="8000">
+                </section>
+                <section class="carousel-item w-100 h-100" data-bs-interval="8000">
                     <span class="d-block w-100 h-100 img" style="background-image: url('./images/img11.jpg');"></span>
-                </div>
-            </div>
+                </section>
+            </section>
             <button style="z-index:10;" class="carousel-control-prev" type="button" data-bs-target="#swiper"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -61,21 +67,15 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+        </section>
     </section>
     <section class="wrapper w-100">
         <section class="flow-container">
-            <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
-            <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
+            <?php
+            for ($i = 0; $i < count($flowImgs); $i++) {
+                echo "<img src='" . $flowImgs[$i] . "' class='d-block w-100 flow-img'>";
+            }
+            ?>
         </section>
         <section class="content-box introduction slide-up d-flex align-items-center justify-content-center p-4">
             <p class="fs-1 mb-0 lh-1 fw-bold fst-italic me-5 text-center introduction-title"><span
@@ -109,74 +109,22 @@
                 </a>
             </p>
             <section class="row class-list">
-                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
-                    <section class="class-item">
-                        <section class="img overflow-hidden">
-                            <span class="img-inner" style="background-image: url('./images/img10.jpg');"></span>
-                        </section>
-                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
-                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
-                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
-                                professional and
-                                experienced
-                                coaches, 3 times a week.</span>
-                        </section>
-                    </section>
-                    <a href="register.php"
-                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
-                        CLASS</a>
-                </section>
-                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
-                    <section class="class-item">
-                        <section class="img overflow-hidden">
-                            <span class="img-inner" style="background-image: url('./images/img3.jpg');"></span>
-                        </section>
-                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
-                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
-                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
-                                professional and
-                                experienced
-                                coaches, 3 times a week.</span>
-                        </section>
-                    </section>
-                    <a href="register.php"
-                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
-                        CLASS</a>
-                </section>
-                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
-                    <section class="class-item">
-                        <section class="img overflow-hidden">
-                            <span class="img-inner" style="background-image: url('./images/img8.jpg');"></span>
-                        </section>
-                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
-                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
-                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
-                                professional and
-                                experienced
-                                coaches, 3 times a week.</span>
-                        </section>
-                    </section>
-                    <a href="register.php"
-                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
-                        CLASS</a>
-                </section>
-                <section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">
-                    <section class="class-item">
-                        <section class="img overflow-hidden">
-                            <span class="img-inner" style="background-image: url('./images/img4.jpg');"></span>
-                        </section>
-                        <section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">
-                            <p class="class-name mb-0 mt-0 fs-5 text-white">Golf</p>
-                            <span class="class-desc fs-6 overflow-hidden text-white">Under the guidance of
-                                professional and
-                                experienced
-                                coaches, 3 times a week.</span>
-                        </section>
-                    </section>
-                    <a href="register.php"
-                        class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW
-                        CLASS</a>
-                </section>
+                <?php
+                while ($row = $newClasses->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<section class="class-wrap col-6 col-sm-4 col-lg-4 col-xxl-3 mb-4">';
+                    echo '<section class="class-item">';
+                    echo '<section class="img overflow-hidden">';
+                    echo "<span class='img-inner' style='background-image:url(\"" . $row['class_cover_img'] . "\");'></span>";
+                    echo '</section>';
+                    echo '<section class="class-detail p-3 d-flex flex-column align-items-center justify-content-center">';
+                    echo '<p class="class-name mb-0 mt-0 fs-5 text-white">' . $row['class_name'] . '</p>';
+                    echo '<span class="class-desc fs-6 overflow-hidden text-white">' . $row['class_intro'] . '</span>';
+                    echo '</section></section>';
+                    echo '<a href="classdetail.php?id=' . $row['id'] . '" class="class-link bg-white text-decoration-none w-100 d-block text-center p-4 pt-2 pb-2 text-color-primary">VIEW CLASS</a>';
+                    echo '</section>';
+
+                }
+                ?>
             </section>
         </section>
         <section class="content-box special-offers p-4">
@@ -184,15 +132,17 @@
                 SPECIAL OFFERS
             </p>
             <section class="special-list d-flex">
+                <?php $special = $specialOffers->fetch(PDO::FETCH_ASSOC); ?>
                 <section class="special-item v-item d-flex flex-column overflow-hidden me-4">
-                    <section class="d-block img" style="background-image: url('./images/img1.jpg');">
+                    <section class="d-block img"
+                        style="background-image: url('<?php echo $special['class_cover_img'] ?>');">
                         <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
-                            <p class="fs-4 mb-2">Camping</p>
-                            <span class="desc fs-6 overflow-hidden">2 days and 1 night of wild camping, we provide tents
-                                and other basic equipments.</span>
+                            <p class="fs-4 mb-2"><?php echo $special['class_name'] ?></p>
+                            <span class="desc fs-6 overflow-hidden"><?php echo $special['class_intro'] ?></span>
                         </section>
                     </section>
-                    <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary" href="#">
+                    <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary"
+                        href="classdetail.php?id=<?php echo $special['id'] ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -201,17 +151,17 @@
                     </a>
                 </section>
                 <section class="flex-1 d-flex flex-column">
+                    <?php $special = $specialOffers->fetch(PDO::FETCH_ASSOC); ?>
                     <section class="flex-1 special-item d-flex overflow-hidden mb-4">
-                        <section class="d-block img" style="background-image: url('./images/img9.jpg');">
+                        <section class="d-block img"
+                            style="background-image: url('<?php echo $special['class_cover_img'] ?>');">
                             <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
-                                <p class="fs-4 mb-1">Boating</p>
-                                <span class="desc fs-6 overflow-hidden">2 days and 1 night of wild camping, we provide
-                                    tents
-                                    and other basic equipments.</span>
+                                <p class="fs-4 mb-1"><?php echo $special['class_name'] ?></p>
+                                <span class="desc fs-6 overflow-hidden"><?php echo $special['class_intro'] ?></span>
                             </section>
                         </section>
                         <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary"
-                            href="#">
+                            href="classdetail.php?id=<?php echo $special['id'] ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -219,17 +169,17 @@
                             </svg>
                         </a>
                     </section>
+                    <?php $special = $specialOffers->fetch(PDO::FETCH_ASSOC); ?>
                     <section class="flex-1 special-item d-flex overflow-hidden">
-                        <section class="d-block img" style="background-image: url('./images/img8.jpg');">
+                        <section class="d-block img"
+                            style="background-image: url('<?php echo $special['class_cover_img'] ?>');">
                             <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
-                                <p class="fs-4 mb-1">Biking</p>
-                                <span class="desc fs-6 overflow-hidden">2 days and 1 night of wild camping, we provide
-                                    tents
-                                    and other basic equipments.</span>
+                                <p class="fs-4 mb-1"><?php echo $special['class_name'] ?></p>
+                                <span class="desc fs-6 overflow-hidden"><?php echo $special['class_intro'] ?></span>
                             </section>
                         </section>
                         <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary"
-                            href="#">
+                            href="classdetail.php?id=<?php echo $special['id'] ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -243,93 +193,39 @@
         </section>
         <section class="content-box membership p-4">
             <p class="text-center mb-4 fs-1 text-white">MEMBERSHIP</p>
-            <div class="d-flex member-list justify-content-center">
-                <section class="d-flex flex-1 flex-column me-4 mb-4 p-0 member-item text-center overflow-hidden">
-                    <section class="flex-1 info-wrap">
-                        <section class="member-detail bg-color-primary p-4">
-                            <h4 class="mb-5 pb-3 member-name text-white">Public</h4>
-                            <h1 class="mb-0 text-white">€ 0.00</h1>
-                            <h5 class="mb-0 text-white">Per Month</h5>
-                        </section>
-                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">No membership fee member, all classes
-                            need
-                            be
-                            purchased at the original
-                            price.
-                        </p>
-                    </section>
-                    <section class="p-3">
-                        <a href="register.php"
-                            class="join-now text-decoration-none badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
-                            NOW</a>
-                    </section>
-                </section>
-                <section class="d-flex flex-1 flex-column me-4 mb-4 p-0 member-item text-center overflow-hidden">
-                    <section class="flex-1 info-wrap">
-                        <section class="member-detail bg-color-primary p-4">
-                            <h4 class="mb-5 pb-3 member-name text-white">Middle</h4>
-                            <h1 class="mb-0 text-white">€ 299.99</h1>
-                            <h5 class="mb-0 text-white">Per Month</h5>
-                        </section>
-                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Middle level member, you can
-                            participate in
-                            some
-                            courses for free, and pay a 30% discount on other courses.
-                        </p>
-                    </section>
-                    <section class="p-3">
-                        <a href="register.php"
-                            class="join-now text-decoration-none badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
-                            NOW</a>
-                    </section>
-                </section>
-
-                <section class="d-flex flex-1 flex-column mb-4 p-0 member-item text-center overflow-hidden">
-                    <section class="flex-1 info-wrap">
-                        <section class="member-detail bg-color-primary p-4">
-                            <h4 class="mb-5 pb-3 member-name text-white">Prime</h4>
-                            <h1 class="mb-0 text-white">€ 999.99</h1>
-                            <h5 class="mb-0 text-white">Per Month</h5>
-                        </section>
-                        <p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">Prime level member, You can
-                            participate in
-                            all
-                            courses without paying additional course fees (excluding self-paid equipment, etc.).
-                        </p>
-                    </section>
-                    <section class="p-3">
-                        <a href="register.php"
-                            class="join-now text-decoration-none badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN
-                            NOW</a>
-                    </section>
-                </section>
-            </div>
+            <section class="d-flex member-list justify-content-center">
+                <?php
+                while ($row = $memberLevelList->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<section class="d-flex flex-1 flex-column me-4 mb-4 p-0 member-item text-center overflow-hidden">';
+                    echo '<section class="flex-1 info-wrap">';
+                    echo '<section class="member-detail bg-color-primary p-4">';
+                    echo '<h4 class="mb-5 pb-3 member-name text-white">' . $row["name"] . '</h4>';
+                    echo '<h1 class="mb-0 text-white">€ ' . number_format($row["fee"], 2) . '</h1>';
+                    echo '<h5 class="mb-0 text-white">Per Month</h5>';
+                    echo '</section>';
+                    echo '<p class="member-desc mb-0 overflow-hidden p-4 pt-3 pb-3">' . $row["desc"] . '</p>';
+                    echo '</section>';
+                    if (!isset($_SESSION["email"])) {
+                        echo '<section class="p-3">';
+                        echo '<a href="register.php" class="join-now text-decoration-none badge rounded-pill text-color-primary p-3 box-shadow-primary">JOIN NOW</a>';
+                        echo '</section>';
+                    }
+                    echo '</section>';
+                    
+                }
+                ?>
+            </section>
             <section class="flow-container">
-                <img src="./images/img4.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img11.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img3.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img10.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img5.jpg" class="d-block w-100 flow-img" alt="...">
-
-                <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img1.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img8.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img6.jpg" class="d-block w-100 flow-img" alt="...">
-
-                <img src="./images/img7.jpg" class="d-block w-100 flow-img" alt="...">
-                <img src="./images/img2.jpg" class="d-block w-100 flow-img" alt="...">
-
-                <img src="./images/img9.jpg" class="d-block w-100 flow-img" alt="...">
+                <?php
+                for ($i = 0; $i < count($flowImgsBottom); $i++) {
+                    echo "<img src='" . $flowImgsBottom[$i] . "' class='d-block w-100 flow-img'>";
+                }
+                ?>
             </section>
         </section>
     </section>
     <?php include './app/views/footer.php' ?>
-    <script src="js/bootstrap.bundle.min.js" ></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

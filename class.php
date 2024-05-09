@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/icon.jpg" type="image/x-icon" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/class.css" />
@@ -14,7 +15,7 @@
     <?php include './app/views/header.php' ?>
     <?php include "./api/class.php" ?>
     <section class="banner"></section>
-    <h1 class="new-clas-title p-4 fw-bold mb-0 text-white">CLASSES</h1>
+    <h1 class="new-class-title p-4 pb-0 fw-bold mb-0">CLASSES</h1>
     <section class="content-box p-4">
         <section class="row class-list">
             <?php
