@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +19,7 @@
     ?>
     <?php
     $classId = $_GET['id'];
+    $myPriority = isset($_SESSION['priority']) ? $_SESSION['priority'] : 0;
     $userId = $_SESSION['user_id'];
     $action = isset($_GET['action']) ? $_GET['action'] : "";
     $row = $result->fetch(PDO::FETCH_ORI_NEXT);
@@ -26,6 +28,7 @@
     $pname = $row['page_name'];
     $classdetail = $row['class_detail'];
     $bookingState = checkBookState($userId, $classId);
+    $classPriority = $row['priority'];
 
     $bookingError = "";
     $contentErr = "";
@@ -62,7 +65,7 @@
     ?>
 
     <section class="classdetail-wrapper w-100">
-        <section class="introduction content-box p-4 mb-5">
+        <section class="introduction content-box p-4 mb-3">
             <p class="fs-1 lh-1 mb-5 text-center text-color-primary"><?php echo "$pname"; ?></p>
             <section class="content clearfix mb-5">
                 <?php echo "<img src='$image' class='picture d-block float-end ms-4 mb-4' alt='...'>"; ?>
@@ -72,11 +75,22 @@
                 <p class="fs-5 mb-0"><?php echo "$classdetail"; ?></p>
             </section>
             <?php if ($bookingState <= 0): ?>
-                <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?action=book&id=' . $classId; ?>"
-                    class="join-btn d-flex flex-column justify-content-center fw-medium text-center bg-color-primary text-white fs-5 text-decoration-none">JOIN<br />
-                    CLASS</a>
+                <?php if ($myPriority >= $classPriority): ?>
+                    <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?action=book&id=' . $classId; ?>"
+                        class="join-btn heart-beat d-flex flex-column justify-content-center fw-medium text-center bg-color-primary text-white fs-5 text-decoration-none">JOIN<br />
+                        CLASS</a>
+                <?php else: ?>
+                    <span
+                        class="join-btn disabled mb-3 d-flex flex-column justify-content-center fw-medium text-center bg-secondary text-white fs-5">JOIN<br />
+                        CLASS</span>
+                    <p class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+                        Sorry, your membership level does not support joining this class.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </p>
+                <?php endif; ?>
+
             <?php else: ?>
-                <p class="alert alert-success alert-dismissible fade show" role="alert">
+                <p class="alert alert-success alert-dismissible fade show mb-0" role="alert">
                     You have already booked this class.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </p>

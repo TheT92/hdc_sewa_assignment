@@ -3,7 +3,7 @@ $classId = $_GET['id'];
 include ("databaseVariables.php");
 $conn = new PDO("mysql:host=$servername", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = "SELECT * FROM sewagroup.classdetail where id=$classId";
+$sql = "SELECT d.*, c.member_level, m.priority FROM sewagroup.classdetail d join sewagroup.class c on d.class_id = c.id join sewagroup.member_level m on c.member_level = m.id where d.id=$classId and d.del_flag != 1";
 $result = $conn->query($sql);
 return $result;
 ?>

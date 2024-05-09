@@ -61,7 +61,10 @@ if(str_ends_with($route, '/classdetail.php') && !isset($_SESSION["email"])) {
                 if (isset($_SESSION['firstname'])) {
                     echo '<li>Hello, ' . $_SESSION['firstname'] . '</li>';
                 }
-                echo '<li><a href="login.php?action=logout" type="button" class="btn btn-sm text-white btn-danger w-100 mt-4 text-decoration-none">Logout</button></a>';
+                if(isset($_SESSION['levelName'])) {
+                    echo '<li class="text-center"><span class="badge bg-color-primary fs-6 mt-2">'.$_SESSION['levelName'].'</span></li>';
+                }
+                echo '<li><a href="login.php?action=logout" type="button" class="btn btn-sm text-white btn-danger w-100 mt-3 text-decoration-none">Logout</button></a>';
             } else {
                 echo '<a href="login.php" class="p-2 ms-3 me-2 d-flex align-items-center">';
                 echo '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">

@@ -14,43 +14,6 @@
 <body id="login" class="page-container d-flex flex-column">
     <?php include './app/views/header.php' ?>
     <?php include ("./api/login.php") ?>
-    <?php
-    $loginErr = "";
-    $emailErr = "";
-    $passwordErr = "";
-    $isValid = true;
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        if (empty(($email))) {
-            $isValid = false;
-            $emailErr = 'Email address required.';
-        }
-        if (empty($password)) {
-            $isValid = false;
-            $passwordErr = 'Password required.';
-        }
-        if ($isValid) {
-            $result = login($email, $password);
-            $rowCount = $result->rowCount();
-            if ($rowCount > 0) {
-                $row = $result->fetch();
-                $_SESSION['email'] = $email;
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['firstname'] = $row['firstname'];
-                $email = $password = "";
-                header("Location: " . "index.php");
-                exit();
-            } else {
-                if ($rowCount == 0) {
-                    $loginErr = "email/password incorrect.";
-                } else {
-                    $loginErr = "Login failed, please try again later.";
-                }
-            }
-        }
-    }
-    ?>
     <section class="login-wrapper d-flex justify-content-center align-items-center">
         <section id="loginBox" class="p-4 w-100 mt-5">
             <h2 class="fw-bold text-center lh-1 fst-italic mb-4 logo"><span class="text-color-primary">O</span>utdoor

@@ -21,7 +21,13 @@
     min-width: 120px;
     min-height: 120px;
     border-radius: 50%;
-    /* box-shadow: 0 0 8px 12px #01963050; */
+}
+
+#classdetail .disabled {
+    cursor: not-allowed;
+}
+
+#classdetail .heart-beat {
     animation: heartBeat 1.4s ease-in-out alternate infinite;
 }
 
