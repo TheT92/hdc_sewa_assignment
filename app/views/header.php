@@ -15,6 +15,10 @@ if (str_ends_with($route, '/login.php') || str_ends_with($route, '/register.php'
         exit();
     }
 }
+if(str_ends_with($route, '/classdetail.php') && !isset($_SESSION["email"])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 <nav class="navbar fixed-top bg-body-tertiary ps-4 pe-2 text-color-black">
     <a href="index.php" class="text-decoration-none">

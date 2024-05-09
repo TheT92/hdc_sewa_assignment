@@ -1,96 +1,138 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/app.css" />
-        <link rel="stylesheet" href="css/classdetail.css" />
-        <title>Class Detail</title>
-    </head>
 
-    <body id="classdetail" class="page-container d-flex flex-column">
-        <?php include './app/views/header.php' ?>
-        <?php 
-        include ("./api/classdetail.php");
-        include ("./api/testimonial.php");
-        ?>
-        <?php
-            $id=$_GET['id'];
-            $row = $result->fetch(PDO::FETCH_ORI_NEXT);
-            $image = $row['class_image'];
-            $description = $row['description'];
-            $pname = $row['page_name'];
-            $classdetail = $row['class_detail'];
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/classdetail.css" />
+    <title>Class Detail</title>
+</head>
 
-            $contentErr = "";
-            $hasWrote = true;
-            
-            if(isset($_SESSION['class_id']) && isset($_SESSION['user_id'])){
-                
-                $userid = $_SESSION['user_id'];
+<body id="classdetail" class="page-container d-flex flex-column">
+    <?php include './app/views/header.php' ?>
+    <?php
+    include ("./api/classdetail.php");
+    include ("./api/testimonial.php");
+    ?>
+    <?php
+    $classId = $_GET['id'];
+    $userId = $_SESSION['user_id'];
+    $action = isset($_GET['action']) ? $_GET['action'] : "";
+    $row = $result->fetch(PDO::FETCH_ORI_NEXT);
+    $image = $row['class_image'];
+    $description = $row['description'];
+    $pname = $row['page_name'];
+    $classdetail = $row['class_detail'];
+    $bookingState = checkBookState($userId, $classId);
+
+    $bookingError = "";
+    $contentErr = "";
+    $hasWrote = true;
+
+    if ($action == 'book' && $bookingState <= 0) {
+        $result = bookClass($userId, $classId);
+        if ($result) {
+            header("Location: " . "classdetail.php?id=" . $classId);
+            exit();
+        } else {
+            $bookingError = "Book failed, please try again later.";
+        }
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $content = $_POST['content'];
+
+        if (empty($content)) {
+            $hasWrote = false;
+            $contentErr = 'It can not be empty!';
+        }
+
+        if ($hasWrote) {
+            $result = addTestimonial($content, $classId, $userId);
+            if ($result) {
+                header("Location: " . "classdetail.php?id=$classId");
+                exit();
+            } else {
+                $contentErr = 'Comment failed, please try again later.';
             }
-            if($_SERVER["REQUEST_METHOD"] == "POST"){
-                $content = $_POST['content'];
-                
-                if(empty($content)){
-                    $hasWrote = false;
-                    $contentErr = 'It can not be empty!';
-                }
+        }
+    }
+    ?>
 
-                if($hasWrote){
-                    $test = addTestimonial($content, $id, 1);
-                    header("Location: " . "classdetail.php?id=$id");
-                    exit();
-                }
-            }
-        ?>
-
-        <section class="classdetail-wrapper w-100">
-            <section class="introduction align-items-center justify-content-left p-4">
-                <p class="fs-1 mb-0 lh-1 fw-bold fst-italic me-5 text-center">
-                    <span class="text-color-primary"><?php echo "$pname";?></span>
+    <section class="classdetail-wrapper w-100">
+        <section class="introduction content-box p-4 mb-5">
+            <p class="fs-1 lh-1 mb-5 text-center text-color-primary"><?php echo "$pname"; ?></p>
+            <section class="content clearfix mb-5">
+                <?php echo "<img src='$image' class='picture d-block float-end ms-4 mb-4' alt='...'>"; ?>
+                <p class="fs-4 mb-2 text-color-primary">The Purpose Of The Course:</p>
+                <p class="detail fs-5 mb-5"><?php echo "$description"; ?></p>
+                <p class="fs-4 mb-2 text-color-primary">Course Introduction:</p>
+                <p class="fs-5 mb-0"><?php echo "$classdetail"; ?></p>
+            </section>
+            <?php if ($bookingState <= 0): ?>
+                <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?action=book&id=' . $classId; ?>"
+                    class="join-btn d-flex flex-column justify-content-center fw-medium text-center bg-color-primary text-white fs-5 text-decoration-none">JOIN<br />
+                    CLASS</a>
+            <?php else: ?>
+                <p class="alert alert-success alert-dismissible fade show" role="alert">
+                    You have already booked this class.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </p>
+            <?php endif; ?>
+            <?php if (!empty($bookingError)): ?>
+                <p class="error text-danger text-center mb-0"><?php echo $bookingError; ?></p>
+            <?php endif; ?>
+        </section>
 
-                <section class="content d-flex align-items-center justify-content-left mt-4">
-                    <?php echo "<img src='$image' class='picture d-block w-60 flow-img' alt='...'>";?>
-                    <section class="p-4">
-                        <p class="fs-4 mb-0 text-color-primary p-1"><b>The Purpose Of The Course:</b></p>
-                        <p class="detail fs-5 mb-0 lh-1 fst-italic me-0 text-left p-1"><?php echo "$description";?></p>
-                        <p class="fs-4 mb-0 text-color-primary p-1"><b>Course Introduction:</b></p>
-                        <p class="fs-5 mb-0 lh-1 fst-italic me-0 text-left p-1">
-                            <?php echo "$classdetail";?>
-                        </p>
-                        <a href=" " class="badge fw-medium rounded-pill bg-color-primary fs-5 mt-4 mb-3 p-4 text-decoration-none">Join Us</a>
+        <section class="add-comment content-box p-4">
+            <p class="fs-2 lh-1 mb-3 text-color-primary">Testimonials</p>
+            <?php if ($bookingState > 0): ?>
+                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $classId; ?>">
+                    <!-- <label for="content" class="form-label fw-bold">Your opinion is important to us.</label> -->
+                    <section class="adding-area d-flex align-items-start">
+                        <section class="flex-1 w-100">
+                            <textarea id="content" name="content" class="form-control"
+                                placeholder="Your opinion is important to us." required></textarea>
+                            <span class="error text-danger"><?php echo $contentErr; ?></span>
+                        </section>
+
+                        <button type="submit"
+                            class="fw-medium border-0 bg-color-primary text-white ms-2 fs-5 p-2 ps-5 pe-5">
+                            Send</button>
                     </section>
-                </section>
-            </section>
-
-            <section class="contentbody">
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$id; ?>">
-                    <label for="content" class="form-label">Please Write Testimonial About Us Class:</label>
-                    <input type="text" id="content" name="content" class="form-control">
-                    <span class="error text-danger"><?php echo $contentErr; ?></span>
-                    <button type="submit" class="btn fw-medium rounded-pill bg-color-primary fs-5 mt-4 mb-3 p-4"> Send</button>
                 </form>
-            </section>
+            <?php endif; ?>
+        </section>
 
-            <section class="testimonial align-items-center justify-content-left p-4 d-flex gap-4">
-                <?php
-                    while ($row = $testList->fetch(PDO::FETCH_ASSOC)) {
-                        echo '<section class="testcontent col-12 col-sm-6 col-lg-3 col-xxl-3 mb-4 p-3">';
-                        echo '<section class="test">';
-                        echo '<p class="fs-5 mb-0 p-1">'. $row['firstname'] .' '. $row['surname'] . '</p>';
-                        echo '<p class="fs-15 mb-0 p-1">'. $row['create_time'] .'</p>';
-                        echo '<p class="fs-5 mb-0 p-1">'. $row['content'] .'</p>';
-                        echo '</section></section>';
-                    }
-                ?>
-            </section>
-            
-        </section>        
+        <section class="comment-list content-box p-4">
+            <?php
+            while ($row = $commentList->fetch(PDO::FETCH_ASSOC)) {
+                echo '<section class="comment-item d-flex pb-2 mb-4 border-bottom">';
+                echo '<span class="user-img d-flex align-items-center justify-content-center me-4 fs-4 text-white" style="background-color:' . randomColor() . '">' . $row['firstname'][0] . '</span>';
+                echo '<section class="flex-1 overflow-hidden">';
+                echo '<p class="fs-5 text-color-primary mb-0">' . $row['firstname'] . ' ' . $row['surname'][0] . '****</p>';
+                echo '<p class="fs-6 mb-2 text-secondary">' . $row['create_time'] . '</p>';
+                echo '<p class="fs-5 mb-0">' . $row['content'] . '</p>';
+                echo '</section></section>';
+            }
+            ?>
+            <?php if ($commentList->rowCount() <= 0): ?>
+                <section class="d-flex flex-column align-items-center justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#ccc" class="bi bi-chat-left"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                    </svg>
+                    <span class="text-secondary mt-2">No Comments yet.</span>
+                </section>
+            <?php endif ?>
+        </section>
+    </section>
 
-        <?php include './app/views/footer.php' ?>
-        <script src="js/bootstrap.bundle.min.js" ></script>
-    </body>
+    <?php include './app/views/footer.php' ?>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

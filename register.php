@@ -125,6 +125,6 @@
     </section>
     <?php include './app/views/footer.php' ?>
 </body>
-<script src="js/bootstrap.bundle.min.js" ></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 
 </html>

@@ -17,6 +17,5 @@ function checkEmail($email)
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query = "SELECT count(*) FROM sewagroup.user WHERE email = '$email'";
     $rows = $conn->query($query)->fetch();
-    echo $rows[0] ."";
     return $rows[0];
 };

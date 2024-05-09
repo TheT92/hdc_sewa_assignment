@@ -71,6 +71,17 @@ create table if not exists sewagroup.testimonial(
   FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)
 );
 
+create table if not exists sewagroup.class_booking(
+  `id` INT UNIQUE AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `class_id`INT NOT NULL,
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,
+  `del_flag` INT NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id),
+  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id)
+);
+
 insert ignore into sewagroup.user(
   `id`, `firstname`, `surname`, `email`, `password`, `member_level`
 ) VALUES (1, 'Tom', 'Muphy', 'Tom@gamil.com', '123456', 1);
@@ -135,7 +146,7 @@ insert ignore into sewagroup.class(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
-) VALUES (1, 1, 'Golf For Ladies', './images/img10.jpg', '1. Master golf etiquette and culture.\n2. Have a basic understanding of golf swing and putting techniques.\n3. Have a basic understanding of the golf course and rules.\n4. Cultivate excellent courtesy, integrity, self-discipline, and consideration for others.', 
+) VALUES (1, 1, 'Golf For Ladies', './images/img1.jpg', '1. Master golf etiquette and culture.\n2. Have a basic understanding of golf swing and putting techniques.\n3. Have a basic understanding of the golf course and rules.\n4. Cultivate excellent courtesy, integrity, self-discipline, and consideration for others.', 
                                 'Golf is a ball sport played on outdoor courts with unique landscapes. This sport places 
                                 great emphasis on the cultivation and etiquette of its participants. Golf is most influential spiritual cores are honesty, 
                                 self-discipline, and consideration for others. The word golf is composed of the first letters of four English words: green, oxygen, 
@@ -144,7 +155,7 @@ insert ignore into sewagroup.classdetail(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`, `page_name`, `class_image`, `description`, `class_detail`
-) VALUES (2, 2, 'Teen Golf Course', './images/img1.jpg', '1. Cultivation of physical fitness.\n2. Cultivate etiquette and patience.\n3. Cultivate self-discipline.',
+) VALUES (2, 2, 'Teen Golf Course', './images/img2.jpg', '1. Cultivation of physical fitness.\n2. Cultivate etiquette and patience.\n3. Cultivate self-discipline.',
                                 'Golf is a sport that cultivates children flexibility, coordination, and explosiveness, which can help them strengthen their 
                                 physical fitness and develop better. At the same time, golf is an outdoor sport that allows children to play in the grass and 
                                 sunlight, giving them ample outdoor time. At the same time, cultivate children politeness and patience. Many golf rules and 
@@ -153,32 +164,32 @@ insert ignore into sewagroup.classdetail(
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
-) VALUES (3, 3,'Challenge Walk', './images/img2.jpg', '1. A course to experience the world.\n2. Can effectively strengthen the body and keep fit.\n3. Courses that are also helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
+) VALUES (3, 3,'Challenge Walk', './images/img3.jpg', '1. A course to experience the world.\n2. Can effectively strengthen the body and keep fit.\n3. Courses that are also helpful for socializing.', 'This course challenges you and strengthens your body, allowing you to push your limits constantly. It also allows you and your friends to take a 
                                 leisurely walk. We will also issue challenge notices from time to time.');
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
-) VALUES (4, 4,'Cycling around animals', './images/img2.jpg', '1. Get closer to nature.\n2. Close contact with animals.\n3. Strengthening the body and keeping fit.\n4. Relieve stress', 
+) VALUES (4, 4,'Cycling around animals', './images/img4.jpg', '1. Get closer to nature.\n2. Close contact with animals.\n3. Strengthening the body and keeping fit.\n4. Relieve stress', 
                                 'This course will be led by a professional coach. The coach will ride through the forest and observe small animals up close. Along the way, you can also enjoy the beautiful scenery of nature. This course mainly aims to relieve stress and exercise the body.');
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
-) VALUES (5, 5,'Weekend Camping', './images/img2.jpg', '1. Reduce stress.\n2. Develop new skills.\n3. Improve interpersonal relationships.\n4. Stay away from electronic screens.\n5. Improve memory.', 
+) VALUES (5, 5,'Weekend Camping', './images/img5.jpg', '1. Reduce stress.\n2. Develop new skills.\n3. Improve interpersonal relationships.\n4. Stay away from electronic screens.\n5. Improve memory.', 
                                 'Camping is an excellent way to stay away from the hustle and bustle of the city and get close to nature. Stay away from daily stress and enjoy a peaceful environment. On an outdoor night, you can look at the starry sky and appreciate the scattered stars. Of course, bonfires are a great pleasure when camping. Camping is usually a social activity. You can have a good time with family or other outdoor friends.');
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
-) VALUES (6, 6,'Scuba Diving', './images/img2.jpg', '1. Improve cardiovascular health.\n2. Reduce stress.\n3. Improve balance and coordination skills.\n4. Explore the underwater world.\n5. Enhance self-confidence and courage.', 
+) VALUES (6, 6,'Scuba Diving', './images/img8.jpg', '1. Improve cardiovascular health.\n2. Reduce stress.\n3. Improve balance and coordination skills.\n4. Explore the underwater world.\n5. Enhance self-confidence and courage.', 
                                 'This course mainly aims to cultivate self-confidence and courage, explore the underwater world and appreciate the other side of the world. During this process, professional diving coaches will follow.');
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
-) VALUES (7, 7,'Boat Trip', './images/img2.jpg', '1. A peaceful and relaxing experience.\n2. Beautiful scenery and unique perspectives.\n3. Opportunities for adventure.', 
+) VALUES (7, 7,'Boat Trip', './images/img6.jpg', '1. A peaceful and relaxing experience.\n2. Beautiful scenery and unique perspectives.\n3. Opportunities for adventure.', 
                                 'During this process, you can enjoy the sea views along the way. Food can be thrown into the air to attract flocks of birds, or feed can be used to make schools of fish surface. We will also visit various small islands on Saturdays when the weather allows, enriching the journey.');
 
 insert ignore into sewagroup.classdetail(
   `id`,`class_id`,`page_name`, `class_image`, `description`, `class_detail`
-) VALUES (8, 8,'Kayaking', './images/img2.jpg', '1. Fully exercise physical fitness.\n2. Create a perfect body shape.\n3. Promote the development of focus.\n4. Teamwork.', 
+) VALUES (8, 8,'Kayaking', './images/img7.jpg', '1. Fully exercise physical fitness.\n2. Create a perfect body shape.\n3. Promote the development of focus.\n4. Teamwork.', 
                                 'In the kayaking project, you can cultivate team skills, enhance relationships with friends, and enjoy the scenery on both sides of the river. Of course, if you want to enjoy quiet time alone, we also offer single kayak events. In May, we hold a kayak competition every year, and the winner will receive a kayak we send out.');
 
 insert ignore into sewagroup.testimonial(

@@ -1,47 +1,74 @@
 #classdetail {
-    padding-top: 0;
     min-height: 100vh;
-
 }
 
-.content{
+#classdetail .content{
     width: 100%;
 }
 
-.picture{
-    width: 60%;
+#classdetail .picture{
+    width: 40%;
 }
 
-.detail{
+#classdetail .detail{
     white-space: pre-wrap;
 }
 
-.testcontent{
-    border: 1px solid black;
-    flex: 1 0 250px;
-    max-width: 100%;
-    word-wrap: break-word;
-    overflow: hidden;
+#classdetail .join-btn {
+    margin: 0 auto;
+    width: 8vw;
+    height: 8vw;
+    min-width: 120px;
+    min-height: 120px;
+    border-radius: 50%;
+    /* box-shadow: 0 0 8px 12px #01963050; */
+    animation: heartBeat 1.4s ease-in-out alternate infinite;
 }
 
-.testcontent p{
-    margin: 0;
-    padding: 0;
-    line-height: 1.2em;
-    overflow: hidden;
-    text-overflow: ellipsis;
+#classdetail #content {
+    height: 240px;
+    max-height: 240px;
+    min-height: 240px;
 }
 
-.btn{
-    color: white;
-}
-
-.contentbody {
-    max-width: 520px !important;
-    border-radius: 8px;
-    box-shadow: 0 0px 3px 0px #bbb;
+#classdetail .add-comment {
     .level-item {
         border-radius: 8px;
         box-shadow: 0 0px 0px 1px #019630;
+    }
+}
+
+#classdetail .user-img {
+    width: 4vw;
+    height: 4vw;
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 50%;
+    background-color: #efefef;
+}
+
+@keyframes heartBeat {
+    from {
+        box-shadow: 0 0 0px 0px #01963090;
+    }
+
+    to {
+        box-shadow: 0 0 8px 12px #01963064;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    #classdetail .picture {
+        margin-left: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+        width: 55%;
+    }
+    #classdetail .adding-area {
+        flex-direction: column;
+    }
+    #classdetail .adding-area button {
+        margin-left: 0 !important;
+        margin-top: 1rem;
+        width: 100%;
     }
 }

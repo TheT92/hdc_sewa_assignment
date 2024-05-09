@@ -36,6 +36,7 @@
             if ($rowCount > 0) {
                 $row = $result->fetch();
                 $_SESSION['email'] = $email;
+                $_SESSION['user_id'] = $row['id'];
                 $_SESSION['firstname'] = $row['firstname'];
                 $email = $password = "";
                 header("Location: " . "index.php");
