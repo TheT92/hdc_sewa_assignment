@@ -210,6 +210,10 @@
     transition: all ease-in-out 0.3s;
     max-width: 360px;
   }
+  #index .membership .member-item:last-child {
+    margin-right: 0 !important;
+  }
+
   #index .membership .member-item:hover .info-wrap:before {
     transform: translateY(0);
   }

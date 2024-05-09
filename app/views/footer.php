@@ -17,5 +17,10 @@
             <p>Yixin Luo&copy;</p>
         </section>
     </section>
-    <a href="contact.php"><span class="badge fw-medium rounded-pill bg-color-primary fs-5 mt-4 mb-3 p-3">Contact Us</span></a>
+    <?php
+        if (!str_ends_with($route, '/contact.php')) {
+            echo '<a href="contact.php"><span class="badge fw-medium rounded-pill bg-color-primary fs-5 mt-4 mb-3 p-3 pt-2 pb-2">Contact Us</span></a>';
+        }
+    ?>
+    
 </footer>

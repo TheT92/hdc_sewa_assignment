@@ -22,6 +22,13 @@ create table if not exists sewagroup.user(
   PRIMARY KEY(id),
   FOREIGN KEY(member_level) REFERENCES sewagroup.member_level(id)
 );
+create table if not exists sewagroup.page(
+  `id` INT UNIQUE AUTO_INCREMENT,
+  `class_ids` varchar(50) not null,
+  `type` varchar(100) not null, -- new_classes/special_offers
+  `del_flag` INT default 0 not null,
+  PRIMARY KEY(id)
+);
 create table if not exists sewagroup.class(
   `id` INT UNIQUE AUTO_INCREMENT,
   `class_name` varchar(50) not null,
@@ -207,5 +214,12 @@ insert ignore into sewagroup.testimonial(
 insert ignore into sewagroup.testimonial(
   `id`, `content`, `class_id`, `user_id`
 ) VALUES (4, 'Every coach are very kind and nice!', 1, 1);
+
+insert ignore into sewagroup.page(
+  `id`, `class_ids`, `type`
+) VALUES(1, '1, 2, 3', 'new_classes');
+insert ignore into sewagroup.page(
+  `id`, `class_ids`, `type`
+) VALUES(2, '4, 5, 6', 'special_offers');
 
 
