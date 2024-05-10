@@ -1,20 +1,25 @@
+/* login page */
 #login {
     min-height: 100vh;
-    .login-wrapper {
-        flex: 1;
-    }
-    #loginBox {
-        max-width: 520px !important;
-        border-radius: 8px;
-        box-shadow: 0 0px 3px 0px #bbb;
-    }    
 }
 
+#login .login-wrapper {
+    flex: 1;
+}
+/* set max width for form area */
+#login #loginBox {
+    max-width: 520px !important;
+    border-radius: 8px;
+    box-shadow: 0 0px 3px 0px #bbb;
+}  
+
 @media screen and (max-width: 750px) {
+    /* mobile mode */
     #login {
         padding-bottom: 0 !important;
     }
-    #loginBox {
+    /* make form area 100% width of window */
+    #login #loginBox {
         margin-top: 0 !important;
         box-shadow: none !important;
     }

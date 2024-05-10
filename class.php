@@ -12,12 +12,17 @@
 </head>
 
 <body id="class" class="page-container">
+    <!-- import header -->
     <?php include './app/views/header.php' ?>
+    <!-- this php is for getting data from database -->
     <?php include "./api/class.php" ?>
+    <!-- banner with background image -->
     <section class="banner"></section>
     <h1 class="new-class-title p-4 pb-0 fw-bold mb-0">CLASSES</h1>
+    <!-- class list -->
     <section class="content-box p-4">
         <section class="row class-list">
+            <!-- get data from database then use iterator to render them on page -->
             <?php
             while ($row = $classList->fetch(PDO::FETCH_ASSOC)) {
                 echo '<section class="class-item d-flex col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4">';
@@ -32,8 +37,10 @@
             ?>
         </section>
     </section>
+    <!-- import footer -->
     <?php include './app/views/footer.php' ?>
-    <script src="js/bootstrap.bundle.min.js" ></script>
+    <!-- bootstrap framework js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

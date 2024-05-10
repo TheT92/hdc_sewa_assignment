@@ -12,74 +12,37 @@
 </head>
 
 <body id="classdetail" class="page-container d-flex flex-column">
-    <?php include './app/views/header.php' ?>
     <?php
+    // import header
+    include './app/views/header.php';
+    // codes and methods about class detail 
     include ("./api/classdetail.php");
+    // codes and methods about testimonial
     include ("./api/testimonial.php");
-    ?>
-    <?php
-    $classId = $_GET['id'];
-    $myPriority = isset($_SESSION['priority']) ? $_SESSION['priority'] : 0;
-    $userId = $_SESSION['user_id'];
-    $action = isset($_GET['action']) ? $_GET['action'] : "";
-    $row = $result->fetch(PDO::FETCH_ORI_NEXT);
-    $image = $row['class_image'];
-    $description = $row['description'];
-    $pname = $row['page_name'];
-    $classdetail = $row['class_detail'];
-    $bookingState = checkBookState($userId, $classId);
-    $classPriority = $row['priority'];
-
-    $bookingError = "";
-    $contentErr = "";
-    $hasWrote = true;
-
-    if ($action == 'book' && $bookingState <= 0) {
-        $result = bookClass($userId, $classId);
-        if ($result) {
-            header("Location: " . "classdetail.php?id=" . $classId);
-            exit();
-        } else {
-            $bookingError = "Book failed, please try again later.";
-        }
-    }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $content = $_POST['content'];
-
-        if (empty($content)) {
-            $hasWrote = false;
-            $contentErr = 'It can not be empty!';
-        }
-
-        if ($hasWrote) {
-            $result = addTestimonial($content, $classId, $userId);
-            if ($result) {
-                header("Location: " . "classdetail.php?id=$classId");
-                exit();
-            } else {
-                $contentErr = 'Comment failed, please try again later.';
-            }
-        }
-    }
     ?>
 
     <section class="classdetail-wrapper w-100">
         <section class="introduction content-box p-4 mb-3">
+            <!-- class name -->
             <p class="fs-1 lh-1 mb-5 text-center text-color-primary"><?php echo "$pname"; ?></p>
             <section class="content clearfix mb-5">
+                <!-- class intro, image and detail -->
                 <?php echo "<img src='$image' class='picture d-block float-end ms-4 mb-4' alt='...'>"; ?>
                 <p class="fs-4 mb-2 text-color-primary">The Purpose Of The Course:</p>
                 <p class="detail fs-5 mb-5"><?php echo "$description"; ?></p>
                 <p class="fs-4 mb-2 text-color-primary">Course Introduction:</p>
                 <p class="fs-5 mb-0"><?php echo "$classdetail"; ?></p>
             </section>
+
+            <!-- if user hasn't booked class -->
             <?php if ($bookingState <= 0): ?>
+                <!-- show join class button if user has authority -->
                 <?php if ($myPriority >= $classPriority): ?>
                     <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?action=book&id=' . $classId; ?>"
                         class="join-btn heart-beat d-flex flex-column justify-content-center fw-medium text-center bg-color-primary text-white fs-5 text-decoration-none">JOIN<br />
                         CLASS</a>
                 <?php else: ?>
+                    <!-- otherwise tell user they can not book this class -->
                     <span
                         class="join-btn disabled mb-3 d-flex flex-column justify-content-center fw-medium text-center bg-secondary text-white fs-5">JOIN<br />
                         CLASS</span>
@@ -88,23 +51,24 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </p>
                 <?php endif; ?>
-
             <?php else: ?>
+                <!-- show alert if user has already booked this class -->
                 <p class="alert alert-success alert-dismissible fade show mb-0" role="alert">
                     You have already booked this class.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </p>
             <?php endif; ?>
             <?php if (!empty($bookingError)): ?>
+                <!-- show error message if exists -->
                 <p class="error text-danger text-center mb-0"><?php echo $bookingError; ?></p>
             <?php endif; ?>
         </section>
-
+        <!-- add testimonial area -->
         <section class="add-comment content-box p-4">
             <p class="fs-2 lh-1 mb-3 text-color-primary">Testimonials</p>
             <?php if ($bookingState > 0): ?>
+                <!-- only users who have booked this class can leave testimonial -->
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $classId; ?>">
-                    <!-- <label for="content" class="form-label fw-bold">Your opinion is important to us.</label> -->
                     <section class="adding-area d-flex align-items-start">
                         <section class="flex-1 w-100">
                             <textarea id="content" name="content" class="form-control"
@@ -119,8 +83,9 @@
                 </form>
             <?php endif; ?>
         </section>
-
+        <!-- comment list -->
         <section class="comment-list content-box p-4">
+            <!-- use iterator to render comment list -->
             <?php
             while ($row = $commentList->fetch(PDO::FETCH_ASSOC)) {
                 echo '<section class="comment-item d-flex pb-2 mb-4 border-bottom">';
@@ -132,6 +97,7 @@
                 echo '</section></section>';
             }
             ?>
+            <!-- if there is no comment about this class, show a tips -->
             <?php if ($commentList->rowCount() <= 0): ?>
                 <section class="d-flex flex-column align-items-center justify-content-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#ccc" class="bi bi-chat-left"
@@ -144,8 +110,9 @@
             <?php endif ?>
         </section>
     </section>
-
+    <!-- import footer -->
     <?php include './app/views/footer.php' ?>
+    <!-- bootstrap js -->
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -1,17 +1,23 @@
+/* global styles and classes */
 body {
+    /* page min width 320px */
     min-width: 320px;
 }
 
 .page-container {
+    /* padding top for header */
     padding-top: 4rem;
 }
 .text-color-black {
+    /* text color */
     color: #333 !important;
 }
 .text-color-primary {
+    /* theme color, for some titles or important texts */
     color: #019630 !important;
 }
 
+/* common text or background or border color styles with primary color */
 .btn-plain-primary {
     color: #019630 !important;
     border-color: #019630 !important;
@@ -24,7 +30,6 @@ body {
 
 .bg-color-primary {
     background-color: #019630 !important;
-    /* background-color: #017a28 !important; */
 }
 
 .border-color-primary {
@@ -35,6 +40,7 @@ body {
     box-shadow: 0 0px 0px 1px #019630;
 }
 
+/* set min width for footer and header */
 nav {
     min-width: 320px;
 }
@@ -43,6 +49,7 @@ footer {
     min-width: 320px;
 }
 
+/* navbar style */
 .navbar {
     height: 4rem;
     background-color: white !important;
@@ -58,11 +65,13 @@ footer {
     flex: 1;
 }
 
+/* animation */
 .slide-up {
     animation: slideUp linear;
     animation-duration: 2s;
 }
 
+/* developer avatars in footer */
 .avatar {
     width: 8rem;
     height: 8rem;
@@ -73,6 +82,7 @@ footer {
     background-repeat: no-repeat;
 }
 
+/* media query */
 @media screen and (max-width: 749px) {
     .avatar-list {
         flex-direction: column;

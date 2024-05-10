@@ -2,8 +2,7 @@
 function registerAccount($firstname, $surname, $email, $psw, $memberLevel)
 {
     include ("databaseVariables.php");
-    $conn = new PDO("mysql:host=$servername", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // create a new user account, save user data
     $sql = "INSERT into sewagroup.user(`firstname`, `surname`, `email`, `password`, `member_level`) VALUES (
             '$firstname', '$surname', '$email', '$psw', $memberLevel)";
     $result = $conn->exec($sql);
@@ -13,8 +12,7 @@ function registerAccount($firstname, $surname, $email, $psw, $memberLevel)
 function checkEmail($email)
 {
     include ("databaseVariables.php");
-    $conn = new PDO("mysql:host=$servername", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // check in database if the email address already exists
     $query = "SELECT count(*) FROM sewagroup.user WHERE email = '$email'";
     $rows = $conn->query($query)->fetch();
     return $rows[0];

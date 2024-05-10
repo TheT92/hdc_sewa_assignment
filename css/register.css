@@ -1,28 +1,30 @@
+/* register page */
 #register {
     min-height: 100vh;
-    .register-wrapper {
-        flex: 1;
-    }
-    #registerBox {
-        max-width: 520px !important;
+}
+
+#register .register-wrapper {
+    flex: 1;
+}
+/* set max width for form area */
+#register #registerBox {
+    max-width: 520px !important;
+    border-radius: 8px;
+    box-shadow: 0 0px 3px 0px #bbb;
+    .level-item {
         border-radius: 8px;
-        box-shadow: 0 0px 3px 0px #bbb;
-        .level-item {
-            border-radius: 8px;
-            box-shadow: 0 0px 0px 1px #019630;
-        }
-    }
-    .price-tag {
-        float: right;
+        box-shadow: 0 0px 0px 1px #019630;
     }
 }
 
 @media screen and (max-width: 750px) {
+    /* mobile mode */
     #register {
         padding-bottom: 0 !important;
     }
 
-    #registerBox {
+    /* make form area 100% width of window */
+    #register #registerBox {
         margin-top: 2rem !important;
         box-shadow: none !important;
     }

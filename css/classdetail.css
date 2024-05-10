@@ -1,3 +1,4 @@
+/* class detail page */
 #classdetail {
     min-height: 100vh;
 }
@@ -10,10 +11,12 @@
     width: 40%;
 }
 
+/* use pre-wrap to Automatically line wrap */
 #classdetail .detail{
     white-space: pre-wrap;
 }
 
+/* set join button to a round button */
 #classdetail .join-btn {
     margin: 0 auto;
     width: 8vw;
@@ -23,27 +26,24 @@
     border-radius: 50%;
 }
 
+/* when user already joined, disable the join button */
 #classdetail .disabled {
     cursor: not-allowed;
 }
 
+/* give the join button an animation */
 #classdetail .heart-beat {
     animation: heartBeat 1.4s ease-in-out alternate infinite;
 }
 
+/* fixed the height of textarea */
 #classdetail #content {
     height: 240px;
     max-height: 240px;
     min-height: 240px;
 }
 
-#classdetail .add-comment {
-    .level-item {
-        border-radius: 8px;
-        box-shadow: 0 0px 0px 1px #019630;
-    }
-}
-
+/* user image of comment list */
 #classdetail .user-img {
     width: 4vw;
     height: 4vw;
@@ -53,6 +53,7 @@
     background-color: #efefef;
 }
 
+/* animation for join button */
 @keyframes heartBeat {
     from {
         box-shadow: 0 0 0px 0px #01963090;
@@ -63,6 +64,7 @@
     }
 }
 
+/* media query for mobile mode */
 @media screen and (max-width: 749px) {
     #classdetail .picture {
         margin-left: 0.5rem !important;

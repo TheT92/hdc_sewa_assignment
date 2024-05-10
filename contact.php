@@ -12,49 +12,14 @@
 </head>
 
 <body id="contact" class="page-container d-flex flex-column justify-content-center">
+    <!-- import header -->
     <?php include './app/views/header.php' ?>
+    <!-- import php codes and functions of contact page -->
     <?php include './api/contactus.php' ?>
-    <?php
-    $firstNameErr = "";
-    $surnameErr = "";
-    $emailErr = "";
-    $phonenoErr = "";
-    $messageErr = "";
-    $isValid = true;
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $phoneno = $_POST['phoneno'];
-        $firstname = $_POST['firstname'];
-        $surname = $_POST['surname'];
-        $message = $_POST['message'];
-        if (empty(($email))) {
-            $isValid = false;
-            $emailErr = 'Email address required.';
-        }
-        if (empty($phoneno)) {
-            $isValid = false;
-            $phonenoErr = 'Phone number required.';
-        }
-        if (empty($message)) {
-            $isValid = false;
-            $phonenoErr = 'Message required.';
-        }
-        if ($isValid) {
-            $result = contactus($firstname, $surname, $email, $phoneno, $message);
-            if ($result) {
-                $email = $phoneno = $message = "";
-                header("Location: " . "index.php");
-                exit();
-            } else {
-                $contactErr = "Send messasge failed, please try again later.";
-            }
-        }
-    }
-    ?>
     <section class="flex-1 d-flex justify-content-center align-items-center">
         <section id="contactBox" class="p-4 w-100 mt-5">
             <h4 class="text-center">Contact Form</h4>
+            <!-- form area -->
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <section class="mb-2">
                     <label for="firstname" class="form-label">First Name</label>
@@ -87,7 +52,9 @@
             </form>
         </section>
     </section>
+    <!-- import footer -->
     <?php include './app/views/footer.php' ?>
+    <!-- import bootstrap js -->
     <script src="js/bootstrap.bundle.min.js" ></script>
 </body>
 

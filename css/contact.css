@@ -1,25 +1,22 @@
+/* contact us page */
 #contact {
     min-height: 100vh;
-    .register-wrapper {
-        flex: 1;
-    }
-    #contactBox {
-        max-width: 520px !important;
-        border-radius: 8px;
-        box-shadow: 0 0px 3px 0px #bbb;
-        .level-item {
-            border-radius: 8px;
-            box-shadow: 0 0px 0px 1px #019630;
-        }
-    }
 }
 
+/* the style of form area */
+#contact #contactBox {
+    max-width: 520px !important;
+    border-radius: 8px;
+    box-shadow: 0 0px 3px 0px #bbb;
+}
+
+/* mobile mode */
 @media screen and (max-width: 750px) {
     #contact {
         padding-bottom: 0 !important;
     }
 
-    #contactBox {
+    #contact #contactBox {
         margin-top: 2rem !important;
         box-shadow: none !important;
     }

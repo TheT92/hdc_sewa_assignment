@@ -1,9 +1,11 @@
+/* class page */
 #class {
     position: relative;
     padding-top: 0;
     min-height: 100vh;
 }
 
+/* banner with background image */
 #class .banner {
     margin-bottom: -45vh;
     width: 100%;
@@ -14,6 +16,7 @@
     background-position: bottom;
 }
 
+/* set navbar to dark mode */
 #class .navbar {
     color: white !important;
     background: #00000070 !important;
@@ -25,6 +28,7 @@
     color: #01963060;
 }
 
+/* style of each class item */
 #class .class-item {
     position: relative;
     transition: all ease-in-out 0.6s;
