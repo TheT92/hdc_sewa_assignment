@@ -2,12 +2,19 @@
 <html>
 
 <head>
+    <!-- set charset -->
     <meta charset="UTF-8" />
+    <!-- set default scale -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- website icon -->
     <link rel="icon" href="./images/icon.jpg" type="image/x-icon" />
+    <!-- bootstrap css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- common app.css -->
     <link rel="stylesheet" href="css/app.css" />
+    <!-- class page css -->
     <link rel="stylesheet" href="css/class.css" />
+    <!-- page title -->
     <title>Classes</title>
 </head>
 

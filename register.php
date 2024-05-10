@@ -2,83 +2,41 @@
 <html>
 
 <head>
+    <!-- set charset -->
     <meta charset="UTF-8" />
+    <!-- set default scale -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- website icon -->
     <link rel="icon" href="./images/icon.jpg" type="image/x-icon" />
+    <!-- bootstrap css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- common app.css -->
     <link rel="stylesheet" href="css/app.css" />
+    <!-- register page css -->
     <link rel="stylesheet" href="css/register.css" />
+    <!-- page title -->
     <title>Register</title>
 </head>
 
 <body id="register" class="page-container d-flex flex-column">
+    <!-- import header -->
     <?php include './app/views/header.php' ?>
     <?php
+    // get member level list from database
     include ("./api/getMemberLevels.php");
+    // import php codes and function for register page
     include ("./api/register.php");
-    ?>
-    <?php
-    $emailErr = "";
-    $firstnameErr = "";
-    $surnameErr = "";
-    $passwordErr = "";
-    $repeatPasswordErr = "";
-    $registerErr = "";
-    $isValid = true;
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $firstname = $_POST['firstname'];
-        $surname = $_POST['surname'];
-        $password = $_POST['password'];
-        $repeatPassword = $_POST['repeatPassword'];
-        $memberLevel = $_POST['memberLevel'];
-        if (empty(($email))) {
-            $isValid = false;
-            $emailErr = 'Email address required.';
-        }
-        if (empty($firstname)) {
-            $isValid = false;
-            $firstnameErr = 'Firstname required.';
-        }
-        if (empty($surname)) {
-            $isValid = false;
-            $surnameErr = 'Surname required.';
-        }
-        if (empty($password)) {
-            $isValid = false;
-            $passwordErr = 'Password required.';
-        }
-        if (empty($repeatPassword)) {
-            $isValid = false;
-            $repeatPasswordErr = 'confirmation password required.';
-        }
-        if ($password != $repeatPassword) {
-            $isValid = false;
-            $passwordErr = 'Password and confirmation password are inconsistent.';
-        }
-        if (checkEmail($email) > 0) {
-            $isValid = false;
-            $emailErr = 'Email address already exists!';
-        }
-        if ($isValid) {
-            $result = registerAccount($firstname, $surname, $email, $password, $memberLevel);
-            if ($result) {
-                $email = $password = $repeatPassword = "";
-                header("Location: " . "login.php");
-                exit();
-            } else {
-                $registerErr = "Register failed, please try again later.";
-            }
-        }
-    }
     ?>
     <section class="register-wrapper d-flex justify-content-center align-items-center">
         <section id="registerBox" class="p-4 w-100 mt-5">
+            <!-- logo -->
             <h2 class="fw-bold text-center lh-1 fst-italic mb-4 mt-0 logo"><span
                     class="text-color-primary">O</span>utdoor
                 </br> Club</h2>
             <h4 class="text-center">REGISTER</h4>
+            <!-- go to login -->
             <p class="text-end mt-3">Already rigistered? <a href="login.php" class="text-color-primary">Login</a></p>
+            <!-- register form -->
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <section class="mb-2">
                     <label for="email" class="form-label">Email address</label>
@@ -107,6 +65,7 @@
                     <span class="error text-danger"><?php echo $repeatPasswordErr; ?></span>
                 </section>
                 <section class="mb-4">
+                    <!-- render all the member levels on page -->
                     <label for="memberLevel" class="form-label">Member Level</label><br />
                     <?php
                     while ($row = $memberLevelList->fetch(PDO::FETCH_ASSOC)) {
@@ -118,12 +77,15 @@
                     }
                     ?>
                 </section>
+                <!-- register error message -->
                 <p class="error text-danger text-center"><?php echo $registerErr; ?></p>
                 <button type="submit" class="btn btn-primary w-100 mb-3 bg-color-primary">REGISTER</button>
             </form>
         </section>
     </section>
+    <!-- import footer -->
     <?php include './app/views/footer.php' ?>
 </body>
+<!-- import bootstrap js -->
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>

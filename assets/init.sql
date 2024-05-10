@@ -1,94 +1,95 @@
+-- create table at first time
 create database if not exists sewagroup character set utf8mb4 collate utf8mb4_unicode_ci;
 create table if not exists sewagroup.member_level (
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `name` varchar(50) not null,
-  `fee` decimal(8,4) not null,
-  `priority` INT not null,
-  `desc` varchar(200) not null,
-  `del_flag` INT not null default 0,
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,
-  primary key(id)
+  `id` INT UNIQUE AUTO_INCREMENT,-- id
+  `name` varchar(50) not null,-- member level name
+  `fee` decimal(8,4) not null,-- member level fee, double
+  `priority` INT not null,-- member priority, higher number means higher priority
+  `desc` varchar(200) not null,-- text description about level
+  `del_flag` INT not null default 0,-- logic delete flag
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,-- create time, auto generated when inserting data
+  primary key(id)-- use id as primary key
 );
 create table if not exists sewagroup.user(
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `firstname` varchar(50) not null,
-  `surname` varchar(50) not null,
-  `email` varchar(80) UNIQUE not null,
-  `password` varchar(100) not null,
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,
-  `last_login` timestamp DEFAULT CURRENT_TIMESTAMP not null,
-  `member_level` INT default 0 not null,
-  `del_flag` INT default 0 not null,
-  PRIMARY KEY(id),
-  FOREIGN KEY(member_level) REFERENCES sewagroup.member_level(id)
+  `id` INT UNIQUE AUTO_INCREMENT,-- id
+  `firstname` varchar(50) not null,-- user firstname
+  `surname` varchar(50) not null,-- user surname
+  `email` varchar(80) UNIQUE not null,-- email
+  `password` varchar(100) not null,-- password
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,-- create time, auto generated when inserting data
+  `member_level` INT default 0 not null,-- the membership level of user
+  `del_flag` INT default 0 not null,-- logic delete flag
+  PRIMARY KEY(id),-- use id as primary key
+  FOREIGN KEY(member_level) REFERENCES sewagroup.member_level(id)-- foreign key, relates to member_level.id
 );
 create table if not exists sewagroup.page(
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `class_ids` varchar(50) not null,
-  `type` varchar(100) not null, -- new_classes/special_offers
-  `del_flag` INT default 0 not null,
-  PRIMARY KEY(id)
+  `id` INT UNIQUE AUTO_INCREMENT,-- id
+  `class_ids` varchar(50) not null,-- class ids that related to the type
+  `type` varchar(100) not null,-- the type of content, values: new_classes/special_offers
+  `del_flag` INT default 0 not null,-- logic delete flag
+  PRIMARY KEY(id)-- use id as primary key
 );
 create table if not exists sewagroup.class(
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `class_name` varchar(50) not null,
-  `class_cover_img` varchar(100) not null,
-  `class_intro` varchar(1000) not null,
-  `class_time` varchar(50) not null,
-  `member_level` INT not null,
-  `del_flag` INT default 0 not null,
-  PRIMARY KEY(id),
-  FOREIGN KEY(member_level) REFERENCES sewagroup.member_level(id)
+  `id` INT UNIQUE AUTO_INCREMENT,--  id
+  `class_name` varchar(50) not null,-- class name
+  `class_cover_img` varchar(100) not null,-- class cover image, refers to 'images' folder of project
+  `class_intro` varchar(1000) not null,-- class introduction
+  `class_time` varchar(50) not null,-- class time
+  `member_level` INT not null,-- related to member_level.id, only users whose membership higher or equals to the member level of class can book this class
+  `del_flag` INT default 0 not null,-- logic delete flag
+  PRIMARY KEY(id),-- use id as primary key
+  FOREIGN KEY(member_level) REFERENCES sewagroup.member_level(id)-- foreign key, relates to member_level.id
 );
 create table if not exists sewagroup.contact(
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `firstname` varchar(50) not null,
-  `surname` varchar(50) not null,
-  `email` varchar(80) not null,
-  `phoneno` INT not null,
-  `message` varchar(1000) not null,
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,
-  `user_id` INT,
-  `del_flag` INT default 0 not null,
-  PRIMARY KEY(id),
-  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)
+  `id` INT UNIQUE AUTO_INCREMENT,-- id
+  `firstname` varchar(50) not null,-- firstname
+  `surname` varchar(50) not null,-- surname
+  `email` varchar(80) not null,-- email
+  `phoneno` INT not null,-- phoneno
+  `message` varchar(1000) not null,-- message
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,-- create_time, auto generated when inserting data
+  `user_id` INT,-- user id, if exists
+  `del_flag` INT default 0 not null,-- logic delete flag
+  PRIMARY KEY(id),-- use id as primary key
+  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)-- foreign key, relates to user.id
 );
 
 create table if not exists sewagroup.classdetail(
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `class_id` INT NOT NULL,
-  `page_name` varchar(50) not null,
-  `class_image` varchar(100) not null,
-  `description` varchar(1000) not null,
-  `class_detail` varchar(1000) not null,
-  `del_flag` INT DEFAULT 0 NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id)
+  `id` INT UNIQUE AUTO_INCREMENT,-- id
+  `class_id` INT NOT NULL,-- class id
+  `page_name` varchar(50) not null,-- page name, title of class detail
+  `class_image` varchar(100) not null,-- class image, refers to 'images' folder of project
+  `description` varchar(1000) not null,-- class description
+  `class_detail` varchar(1000) not null,-- class detail
+  `del_flag` INT DEFAULT 0 NOT NULL,-- logic delete flag
+  PRIMARY KEY(id),-- use id as primary key
+  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id)-- foreign key, relates to class.id
 );
 
 create table if not exists sewagroup.testimonial(
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `content` TEXT NOT NULL,
-  `class_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-  `del_flag` INT DEFAULT 0 NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id),
-  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)
+  `id` INT UNIQUE AUTO_INCREMENT,-- id
+  `content` TEXT NOT NULL,-- content of testimonial
+  `class_id` INT NOT NULL,-- class id
+  `user_id` INT NOT NULL,-- user id
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,-- create_time, auto generated when inserting data
+  `del_flag` INT DEFAULT 0 NOT NULL,-- logic delete flag
+  PRIMARY KEY(id),-- use id as primary key
+  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id),-- foreign key, relates to class.id
+  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id)-- foreign key, relates to user.id
 );
 
 create table if not exists sewagroup.class_booking(
-  `id` INT UNIQUE AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `class_id`INT NOT NULL,
-  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,
-  `del_flag` INT NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id),
-  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id)
+  `id` INT UNIQUE AUTO_INCREMENT,-- id
+  `user_id` INT NOT NULL,-- user id
+  `class_id`INT NOT NULL,-- class id
+  `create_time` timestamp DEFAULT CURRENT_TIMESTAMP not null,-- create_time, auto generated when inserting data
+  `del_flag` INT NOT NULL,-- logic delete flag
+  PRIMARY KEY(id),-- use id as primary key
+  FOREIGN KEY(user_id) REFERENCES sewagroup.user(id),-- foreign key, relates to user.id
+  FOREIGN KEY(class_id) REFERENCES sewagroup.class(id)-- foreign key, relates to class.id
 );
 
+-- preload testing data
 insert ignore into sewagroup.user(
   `id`, `firstname`, `surname`, `email`, `password`, `member_level`
 ) VALUES (1, 'Tom', 'Muphy', 'Tom@gamil.com', '123456', 1);
