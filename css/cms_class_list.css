@@ -1,0 +1,19 @@
+#classEdit .class-cover-img {
+    width: 100px;
+}
+
+#classEdit .class-cover-img span {
+    width: 100%;
+    padding-top: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#classEdit .class-desc {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* ! autoprefixer: off */
+    -webkit-box-orient: vertical;
+}

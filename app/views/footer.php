@@ -25,5 +25,5 @@
             echo '<a href="contact.php"><span class="badge fw-medium rounded-pill bg-color-primary fs-5 mt-4 mb-3 p-3 pt-2 pb-2">Contact Us</span></a>';
         }
     ?>
-    
+    <p><a href="cms/index_edit.php">CMS</a></p>
 </footer>

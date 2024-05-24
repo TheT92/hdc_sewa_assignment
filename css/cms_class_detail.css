@@ -1,0 +1,16 @@
+#classDetail .form-label {
+    width: 120px;
+}
+
+#classDetail .cover-item {
+    width: 160px;
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#classDetail textarea {
+    height: 400px;
+    min-height: 400px;
+}

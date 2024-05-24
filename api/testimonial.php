@@ -23,7 +23,7 @@ $classId = $_GET['id'];
 include ("databaseVariables.php");
 // get testimonals from database
 $sql = "SELECT t.id, t.content, t.create_time, u.firstname, u.surname FROM sewagroup.testimonial t
-    JOIN sewagroup.user u ON t.user_id = u.id WHERE t.class_id = '$classId' ORDER BY create_time DESC";
+    JOIN sewagroup.user u ON t.user_id = u.id WHERE t.class_id = '$classId' and t.del_flag != 1 ORDER BY create_time DESC";
 $commentList = $conn->query($sql);
 return $commentList;
 ?>

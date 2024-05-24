@@ -1,0 +1,20 @@
+#indexEdit .class-cover-img {
+    width: 15%;
+    min-width: 100px;
+}
+
+#indexEdit .class-cover-img span {
+    width: 100%;
+    padding-top: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#indexEdit .class-desc {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* ! autoprefixer: off */
+    -webkit-box-orient: vertical;
+}

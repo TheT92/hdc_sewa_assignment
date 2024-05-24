@@ -116,3 +116,25 @@ footer {
         transform: translate(0);
     }
 }
+
+
+/* cms pages */
+.cms-page {
+    padding-left: 200px;
+    min-height: 100vh;
+    /* background-color: #d2dfed; */
+    background-color: #ececec;
+}
+.cms-menu {
+    top: 4rem;
+    bottom: 0;
+    width: 200px;
+    background-color: #131825;
+}
+.cms-menu nav {
+    min-width: auto;
+    width: 200px;
+}
+.cms-menu nav a {
+    border-radius: 0 !important;
+}
