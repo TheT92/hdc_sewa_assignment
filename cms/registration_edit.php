@@ -20,6 +20,8 @@
     <!-- import header -->
     <?php include '../app/views/cms_header.php' ?>
     <?php include '../app/views/cms_menu.php' ?>
+
+    <?php include '../app/templates/register_edit.php' ?>
     <!-- import bootstrap js -->
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
