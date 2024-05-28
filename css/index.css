@@ -199,14 +199,40 @@
   background-color: white;
 }
 
-#index .special-offers .special-item:hover {
-  box-shadow: 0 0 8px 1px #333;
+#index .special-offers .v-item .img {
+  width: 100%;
 }
 
-#index .special-offers .special-item:hover .info {
-  opacity: 1 !important;
+#index .special-offers .v-item .img .desc {
+  -webkit-line-clamp: 3;
 }
 
+#index .special-offers .special-item {
+  width: 60%;
+}
+#index .special-offers .v-item {
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+  width: 40%;
+}
+#index .special-offers .h-item .item-wrapper-inner {
+  margin-bottom: 0.75rem;
+}
+#index .special-offers .h-item +.h-item {
+  margin-bottom: 1.5rem;
+}
+#index .special-offers .h-item +.h-item .item-wrapper-inner {
+  margin-top: 0.75rem;
+  margin-bottom: 0rem;
+}
+#index .special-offers .item-wrapper {
+  position: relative;
+  width:100%;
+  padding-top:50%;
+}
+#index .special-offers .v-item .item-wrapper {
+  padding-top:150%;
+}
 #index .special-offers .special-item .img {
   position: relative;
   flex: 1;
@@ -217,7 +243,23 @@
   background-repeat: no-repeat;
 }
 
-#index .special-offers .special-item .img .info {
+#index .special-offers .item-wrapper-inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: 1.5rem;
+}
+
+#index .special-offers .v-item .item-wrapper-inner {
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  margin-left: 0;
+}
+
+#index .special-offers .special-item .info {
   position: absolute;
   left: 0;
   right: 0;
@@ -228,7 +270,7 @@
   transition: all ease-in-out 0.6s;
 }
 
-#index .special-offers .special-item .img .desc {
+#index .special-offers .special-item .desc {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -240,18 +282,14 @@
   color: white;
 }
 
-#index .special-offers .v-item {
-  width: 40%;
+#index .special-offers .item-wrapper-inner:hover {
+  box-shadow: 0 0 8px 1px #333;
 }
 
-#index .special-offers .v-item .img {
-  width: 100%;
-  padding-top: 130%;
+#index .special-offers .item-wrapper-inner:hover .info {
+  opacity: 1 !important;
 }
 
-#index .special-offers .v-item .img .desc {
-  -webkit-line-clamp: 3;
-}
 
 /* style of membership area */
 #index .membership {
@@ -354,11 +392,6 @@
   }
 
   #index .special-item+.special-item {
-    margin-bottom: 0 !important;
-  }
-
-  #index .v-item {
-    margin-right: 0.5rem !important;
     margin-bottom: 0 !important;
   }
 

@@ -3,7 +3,7 @@
 $current_path = $_SERVER['REQUEST_URI'];
 $route = parse_url($current_path, PHP_URL_PATH);
 $urls = array("index_edit.php", "registration_edit.php", "class_detail_edit.php", "testimonial_edit.php", "contact_us_edit.php");
-$pages = array("Index Edit", "Registration Edit", "Class Edit", "Testimonial Edit", "contact Us Edit");
+$pages = array("Index Edit", "Registration Edit", "Class Edit", "Testimonial Edit", "Contact Us Edit");
 ?>
 
 <section class="cms-menu fixed-top">

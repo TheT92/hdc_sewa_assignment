@@ -1,4 +1,5 @@
 <?php
+$index = 0;
 // images for swiper
 $swiperImgs = [
     './images/img1.jpg',

@@ -133,67 +133,31 @@
             <p class="special-offers-title text-color-primary fs-1 d-flex justify-content-between mb-3">
                 SPECIAL OFFERS
             </p>
-            <!-- get new special offers from database, render on page -->
-            <section class="special-list d-flex">
-                <?php $special = $specialOffers->fetch(PDO::FETCH_ASSOC); ?>
-                <!-- first special item -->
-                <section class="special-item v-item d-flex flex-column overflow-hidden me-4">
-                    <section class="d-block img"
-                        style="background-image: url('<?php echo $special['class_cover_img'] ?>');">
-                        <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
-                            <p class="fs-4 mb-2"><?php echo $special['class_name'] ?></p>
-                            <span class="desc fs-6 overflow-hidden"><?php echo $special['class_intro'] ?></span>
-                        </section>
-                    </section>
-                    <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary"
-                        href="classdetail.php?id=<?php echo $special['id'] ?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                            class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-                        </svg>
-                    </a>
-                </section>
-                <section class="flex-1 d-flex flex-column">
-                    <?php $special = $specialOffers->fetch(PDO::FETCH_ASSOC); ?>
-                    <!-- sesond special item -->
-                    <section class="flex-1 special-item d-flex overflow-hidden mb-4">
-                        <section class="d-block img"
-                            style="background-image: url('<?php echo $special['class_cover_img'] ?>');">
-                            <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
-                                <p class="fs-4 mb-1"><?php echo $special['class_name'] ?></p>
-                                <span class="desc fs-6 overflow-hidden"><?php echo $special['class_intro'] ?></span>
+            <section class="clearfix">
+                <?php while ($row = $specialOffers->fetch(PDO::FETCH_ASSOC)): ?>
+                    <section class="special-item float-start <?php echo ($index % 3 == 0 ? 'v-item' : 'h-item'); ?>">
+                        <section class="item-wrapper">
+                            <section class="item-wrapper-inner d-flex">
+                                <section class="d-block flex-1 position-relative img"
+                                    style="background-image: url('<?php echo $row['class_cover_img'] ?>');">
+                                    <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
+                                        <p class="fs-4 mb-2"><?php echo $row['class_name'] ?></p>
+                                        <span class="desc fs-6 overflow-hidden"><?php echo $row['class_intro'] ?></span>
+                                    </section>
+                                </section>
+                                <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary"
+                                    href="classdetail.php?id=<?php echo $row['id'] ?>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                                    </svg>
+                                </a>
                             </section>
                         </section>
-                        <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary"
-                            href="classdetail.php?id=<?php echo $special['id'] ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-                            </svg>
-                        </a>
                     </section>
-                    <?php $special = $specialOffers->fetch(PDO::FETCH_ASSOC); ?>
-                    <!-- third special item -->
-                    <section class="flex-1 special-item d-flex overflow-hidden">
-                        <section class="d-block img"
-                            style="background-image: url('<?php echo $special['class_cover_img'] ?>');">
-                            <section class="info p-3 d-flex align-items-center justify-content-center flex-column">
-                                <p class="fs-4 mb-1"><?php echo $special['class_name'] ?></p>
-                                <span class="desc fs-6 overflow-hidden"><?php echo $special['class_intro'] ?></span>
-                            </section>
-                        </section>
-                        <a class="item-link d-flex p-4 align-items-center justify-content-center bg-color-primary"
-                            href="classdetail.php?id=<?php echo $special['id'] ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-                            </svg>
-                        </a>
-                    </section>
-                </section>
+                    <?php $index++; ?>
+                <?php endwhile ?>
             </section>
         </section>
         <!-- membership area -->
