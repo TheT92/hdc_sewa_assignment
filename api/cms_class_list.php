@@ -26,6 +26,16 @@ function getClassList()
     return $classes;
 }
 
+function getClassDetailList()
+{
+    // get class id from url
+    include ("databaseVariables.php");
+    // get testimonals from database
+    $sql = "SELECT `id`,`class_id`,`page_name`,`class_image`,`description`, `class_detail` FROM sewagroup.classdetail cd";
+    $classdetail = $conn->query($sql);
+    return $classdetail;
+}
+
 function changeState($id, $val) {
      // get class id from url
      include ("databaseVariables.php");
