@@ -32,6 +32,7 @@ if (!str_ends_with($route, 'cms/login.php') && !isset($_SESSION["cms_login"])) {
         <h1 class="fw-bold fst-italic ms-2">CMS</h1>
     </a>
     <span class="d-flex align-items-center">
+        <a href="/hdc_sewa_assignment" class="me-4 text-primary" style="text-decoration:underline;">Back to Club</a>
         <?php if (isset($_SESSION["cms_login"])): ?>
             <span class="pe-2">Hello Admin,</span>
             <a href="login.php?action=logout" type="button"
