@@ -3,10 +3,14 @@ include '../api/cms_contactus_edit.php';
 $contact = getContactList();
 ?>
 <section class="cms-template flex-1 p-4">
+    <h3 class="d-flex justify-content-between mb-3">
+        Message List
+    </h3>
     <section>
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th scope="col">Id</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Surname</th>
                     <th scope="col">Email</th>
@@ -18,6 +22,7 @@ $contact = getContactList();
             <tbody class="table-group-divider">
                 <?php while ($row = $contact->fetch(PDO::FETCH_ASSOC)): ?>
                     <tr>
+                        <td class="align-middle"><?php echo $row['id'] ?></td>
                         <td><?php echo $row['firstname'] ?></td>
                         <td><?php echo $row['surname'] ?></td>
                         <td><?php echo $row['email'] ?></td>

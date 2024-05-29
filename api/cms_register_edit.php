@@ -21,7 +21,7 @@ function getRegisterUser()
     // get class id from url
     include ("databaseVariables.php");
     // get users from database
-    $sql = "SELECT u.id, u.create_time, u.del_flag, u.member_level, u.firstname, u.surname FROM sewagroup.user u
+    $sql = "SELECT u.id, u.create_time, u.del_flag, u.email, u.member_level, u.firstname, u.surname FROM sewagroup.user u
     JOIN sewagroup.member_level m ON u.member_level = m.id ORDER BY create_time DESC";
     $registerUser = $conn->query($sql);
     return $registerUser;
