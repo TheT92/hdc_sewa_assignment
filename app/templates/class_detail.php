@@ -3,7 +3,7 @@ include '../api/cms_class_detail.php';
 ?>
 <section class="cms-template flex-1 p-4">
     <h3 class="mb-4">
-        <?php echo (empty($id) ? 'Edit Class' : 'New Class') ?>
+        <?php echo (empty($id) ? 'New Class' : 'Edit Class') ?>
     </h3>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <section class="mb-4 d-flex">
@@ -34,6 +34,20 @@ include '../api/cms_class_detail.php';
             <section class="flex-1 overflow-hidden">
                 <textarea id="class_intro" name="class_intro" class="form-control" required><?php echo $class_intro ?></textarea>
                 <span class="error text-danger"><?php echo $introErr; ?></span>
+            </section>
+        </section>
+        <section class="mb-2 d-flex">
+            <label for="class_des" class="form-label text-end pe-2">Description</label>
+            <section class="flex-1 overflow-hidden">
+                <textarea id="class_des" name="class_des" class="form-control" required><?php echo $class_des ?></textarea>
+                <span class="error text-danger"><?php echo $desErr; ?></span>
+            </section>
+        </section>
+        <section class="mb-2 d-flex">
+            <label for="class_detail" class="form-label text-end pe-2">Class Detail</label>
+            <section class="flex-1 overflow-hidden">
+                <textarea id="class_detail" name="class_detail" class="form-control" required><?php echo $class_detail ?></textarea>
+                <span class="error text-danger"><?php echo $detailErr; ?></span>
             </section>
         </section>
         <p class="error text-danger text-center"><?php echo $submitErr; ?></p>
