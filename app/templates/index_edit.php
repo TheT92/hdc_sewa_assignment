@@ -8,10 +8,10 @@ $excludeSpecialClasses = getExcludeSpecialClasses();
 ?>
 <section class="cms-template flex-1 p-4">
     <section class="d-flex">
-        <div class="accordion-body flex-1 me-4">
+        <section class="accordion-body flex-1 me-4">
             <h3 class="d-flex justify-content-between mb-3">
                 New Classes
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNew">
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addNew">
                     Add New
                 </button>
             </h3>
@@ -58,11 +58,11 @@ $excludeSpecialClasses = getExcludeSpecialClasses();
                     <span class="text-secondary mt-2">No Content</span>
                 </section>
             <?php endif ?>
-        </div>
-        <div class="accordion-body flex-1">
+        </section>
+        <section class="accordion-body flex-1">
             <h3 class="d-flex justify-content-between mb-3">
                 Special Offers
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSpecial">
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addSpecial">
                     Add Special
                 </button>
             </h3>
@@ -109,22 +109,22 @@ $excludeSpecialClasses = getExcludeSpecialClasses();
                     <span class="text-secondary mt-2">No Content</span>
                 </section>
             <?php endif ?>
-        </div>
+        </section>
     </section>
-    <div class="modal fade" id="addNew" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
+    <section class="modal fade" id="addNew" tabindex="-1" aria-hidden="true">
+        <section class="modal-dialog modal-lg">
+            <section class="modal-content">
+                <section class="modal-header">
                     <h1 class="modal-title fs-5">Add New Class</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                </section>
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?action=addNew">
-                    <div class="modal-body">
+                    <section class="modal-body">
                         <input type="hidden" name="originIds" value="<?php echo $newIds; ?>" id="originIds">
                         <label for="newClassId" class="form-label"></label><br />
                         <?php while ($row = $excludeNewClasses->fetch(PDO::FETCH_ASSOC)): ?>
-                            <div class="form-check d-inline-block me-4 mb-4">
-                                <input class="form-check-input" type="radio" name="newClassId"
+                            <section class="form-check d-inline-block me-4 mb-4">
+                                <input class="form-check-input border-radio" type="radio" name="newClassId"
                                     value="<?php echo $row['id']; ?>" id="<?php echo $row['id']; ?>" required>
                                 <label class="form-check-label d-flex flex-1" for="<?php echo $row['id']; ?>">
                                     <section class="class-cover-img me-4">
@@ -137,32 +137,32 @@ $excludeSpecialClasses = getExcludeSpecialClasses();
                                             class="class-desc fs-6 overflow-hidden"><?php echo $row['class_intro']; ?></span>
                                     </section>
                                 </label>
-                            </div>
+                            </section>
                         <?php endwhile ?>
-                    </div>
-                    <div class="modal-footer">
+                    </section>
+                    <section class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                    </section>
                 </form>
 
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="addSpecial" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
+            </section>
+        </section>
+    </section>
+    <section class="modal fade" id="addSpecial" tabindex="-1" aria-hidden="true">
+        <section class="modal-dialog modal-lg">
+            <section class="modal-content">
+                <section class="modal-header">
                     <h1 class="modal-title fs-5">Add Special Offers</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                </section>
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?action=addSpecial">
-                    <div class="modal-body">
+                    <section class="modal-body">
                         <input type="hidden" name="originIds" value="<?php echo $specialIds; ?>" id="originIds">
                         <label for="newSpecialId" class="form-label"></label><br />
                         <?php while ($row = $excludeSpecialClasses->fetch(PDO::FETCH_ASSOC)): ?>
-                            <div class="form-check d-inline-block me-4 mb-4">
-                                <input class="form-check-input" type="radio" name="newSpecialId"
+                            <section class="form-check d-inline-block me-4 mb-4">
+                                <input class="form-check-input border-radio" type="radio" name="newSpecialId"
                                     value="<?php echo $row['id']; ?>" id="sprcial<?php echo $row['id']; ?>" required>
                                 <label class="form-check-label d-flex flex-1" for="sprcial<?php echo $row['id']; ?>">
                                     <section class="class-cover-img me-4">
@@ -175,16 +175,16 @@ $excludeSpecialClasses = getExcludeSpecialClasses();
                                             class="class-desc fs-6 overflow-hidden"><?php echo $row['class_intro']; ?></span>
                                     </section>
                                 </label>
-                            </div>
+                            </section>
                         <?php endwhile ?>
-                    </div>
-                    <div class="modal-footer">
+                    </section>
+                    <section class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                    </section>
                 </form>
 
-            </div>
-        </div>
-    </div>
+            </section>
+        </section>
+    </section>
 </section>
